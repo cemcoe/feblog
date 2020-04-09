@@ -32,7 +32,15 @@ module.exports = {
         text: 'Vue',
         ariaLabel: 'Language Menu',
         items: [
-          { text: 'Vue | 入手笔记', link: '/vue-start-note/' },
+          {
+            text: 'Vue | 入手笔记',
+            link: '/vue-start-note/'
+          },
+          {
+            text: 'Vue | 封装一个tabbar组件',
+            link: '/vue-package-a-tabbar-component-from-zero/'
+          },
+
         ]
       }
     ],
