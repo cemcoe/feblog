@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ajax</title>
+</head>
+<body>
+  <script>
+  const options = {
+  method: "GET",
+  headers: {'Content-type': 'application/json'},
+}
+
+fetch('https://www.fastmock.site/mock/82c33fc5720bd9ed8c30c68612a44ca7/baseapi/info', options)
+  .then(response => response.json())
+  .then(result => console.log(result))
+  .catch(err => console.log(err))
+  </script>
+  
+</body>
+</html>
