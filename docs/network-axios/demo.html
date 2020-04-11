@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    const config = {
+      url: 'https://www.fastmock.site/mock/bd48738678f4bdfdc0639cfd895c7b09/supermall/home/multidata?type=pop'
+    }
+    axios(config).then(res => console.log('axios', res))
+
+
+  </script>
+</body>
+
+</html>

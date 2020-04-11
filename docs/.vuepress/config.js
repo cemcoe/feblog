@@ -44,6 +44,9 @@ const nav = [
       {
         text: '网络请求那些事情',
         link: '/those-things-of-the-network-requests/'
+      }, {
+        text: 'axios那些事',
+        link: '/network-axios/'
       },
     ]
   }
