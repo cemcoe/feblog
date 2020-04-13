@@ -36,6 +36,10 @@ const nav = [
         link: '/vue-insert-data-to-dom/'
       },
       {
+        text: 'Vue | 如何将数据插入到元素属性中',
+        link: '/vue-insert-data-to-elm-attr/'
+      },
+      {
         text: 'Vue | 封装一个tabbar组件',
         link: '/vue-package-a-tabbar-component-from-zero/'
       },
