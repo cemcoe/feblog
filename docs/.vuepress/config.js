@@ -32,6 +32,10 @@ const nav = [
         link: '/vue-start-note/'
       },
       {
+        text: 'Vue | 如何将数据插入到DOM中',
+        link: '/vue-insert-data-to-dom/'
+      },
+      {
         text: 'Vue | 封装一个tabbar组件',
         link: '/vue-package-a-tabbar-component-from-zero/'
       },
