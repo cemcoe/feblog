@@ -76,7 +76,12 @@ const nav = [
       {
         text: '网络请求那些事情',
         link: '/those-things-of-the-network-requests/'
-      }, {
+      }, 
+      {
+        text: '如何模拟后端数据',
+        link: '/network-mock-data/'
+      },
+      {
         text: 'axios那些事',
         link: '/network-axios/'
       },
