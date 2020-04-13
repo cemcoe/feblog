@@ -48,6 +48,10 @@ const nav = [
         link: '/vue-v-on-and-methods/'
       },
       {
+        text: 'Vue | v-model和form的羁绊',
+        link: '/vue-v-model-and-form/'
+      },
+      {
         text: 'Vue | 封装一个tabbar组件',
         link: '/vue-package-a-tabbar-component-from-zero/'
       },
