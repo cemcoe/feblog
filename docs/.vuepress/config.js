@@ -40,6 +40,10 @@ const nav = [
         link: '/vue-insert-data-to-elm-attr/'
       },
       {
+        text: 'Vue | computed和methods与v-if和v-show的故事',
+        link: '/vue-two-cp-computed-methods-v-if-show/'
+      },
+      {
         text: 'Vue | 封装一个tabbar组件',
         link: '/vue-package-a-tabbar-component-from-zero/'
       },
