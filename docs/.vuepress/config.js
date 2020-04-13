@@ -58,6 +58,10 @@ const nav = [
       {
         text: 'Vue | 组件通信',
         link: '/vue-com-communication/'
+      },      
+      {
+        text: 'Vue | 组件个性化',
+        link: '/vue-com-personal/'
       },
       {
         text: 'Vue | 封装一个tabbar组件',
