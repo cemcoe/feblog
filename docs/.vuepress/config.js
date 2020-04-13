@@ -52,6 +52,10 @@ const nav = [
         link: '/vue-v-model-and-form/'
       },
       {
+        text: 'Vue | 组件化基本操作',
+        link: '/vue-com-base-operation/'
+      },
+      {
         text: 'Vue | 封装一个tabbar组件',
         link: '/vue-package-a-tabbar-component-from-zero/'
       },
