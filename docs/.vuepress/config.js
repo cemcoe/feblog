@@ -44,6 +44,10 @@ const nav = [
         link: '/vue-two-cp-computed-methods-v-if-show/'
       },
       {
+        text: 'Vue | v-on和methods的羁绊',
+        link: '/vue-v-on-and-methods/'
+      },
+      {
         text: 'Vue | 封装一个tabbar组件',
         link: '/vue-package-a-tabbar-component-from-zero/'
       },
