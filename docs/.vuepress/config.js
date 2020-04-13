@@ -54,6 +54,10 @@ const nav = [
       {
         text: 'Vue | 组件化基本操作',
         link: '/vue-com-base-operation/'
+      }, 
+      {
+        text: 'Vue | 组件通信',
+        link: '/vue-com-communication/'
       },
       {
         text: 'Vue | 封装一个tabbar组件',
