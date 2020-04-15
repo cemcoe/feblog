@@ -1,17 +1,16 @@
 
-4.8日更新
-不定期更新，嘿嘿
-
-[[toc]]
-
 ---
+
 待学习：
+- ES2020
+- Vue3.0
+- TypeScript
 - WebAssembly
 - Web component
-- TypeScript
 - Deno
 
 ---
+
 ## 视频教程
 - [B站 | 渡一教育 | HTML+CSS零基础入学](https://www.bilibili.com/video/BV1ZE41177b6)
 - [B站 | 渡一教育 | JavaScript 零基础权威入学宝典](https://www.bilibili.com/video/BV1f4411R7M5)
@@ -44,7 +43,6 @@
 
 其次看出版时间！！！前端发展太快，一些技术正在被抛弃，比如 flash，早年的一些技术书价值已经不是很大了。
 
-
 贵的就是好的，在技术书这里是不成立的。
 
 具体可查看开源书籍，对于文档开源，可看电影《互联网之子》。
@@ -54,7 +52,6 @@
 
 ### 操作手册类
 - 《软件开发者路线图--从学徒到高手》
-
 
 ### 一道题，一本书
 - 《WebKit技术内幕》浏览器内核，偏向底层的东西，一个经典的题目：谈一下你了解的浏览器内核
@@ -85,11 +82,10 @@
 
 
 ## 试炼场
-
-- [实验楼](https://www.shiyanlou.com/) 基础技能Linux 优点是不用配环境，类似于简答题，更贴近开发环境
-经常搞爬楼活动。目前在用它学 TypeScript。
-- [freeCodeCamp](https://www.freecodecamp.one/) 中文版，适合入门，类似于填空题，有项目题，检测结果较慢需要短暂等待。
 - [freeCodeCamp](https://www.freecodecamp.org/) 英文版 可以了解到一些前端术语的英语表达，且涉及到算法。
+- [freeCodeCamp](https://www.freecodecamp.one/) 中文版，适合入门，类似于填空题，有项目题，检测结果较慢需要短暂等待。
+- [实验楼](https://www.shiyanlou.com/users/550342/) 基础技能Linux 优点是不用配环境，类似于简答题，更贴近开发环境
+经常搞爬楼活动。目前在用它学 TypeScript。
 
 ## 底层原理 
 想要搞清楚一些事儿，必须深入底层。
