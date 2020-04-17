@@ -1,6 +1,4 @@
 
----
-
 待学习：
 - ES2020
 - Vue3.0
@@ -11,15 +9,26 @@
 
 ---
 
+## 课程
+- [极客时间 | 99元 | 重学前端](https://time.geekbang.org/column/intro/100023201)
+
+## 试炼场
+- [freeCodeCamp](https://www.freecodecamp.org/) 英文版 可以了解到一些前端术语的英语表达，且涉及到算法。
+- [freeCodeCamp](https://www.freecodecamp.one/) 中文版，适合入门，类似于填空题，有项目题，检测结果较慢需要短暂等待。
+- [实验楼](https://www.shiyanlou.com/users/550342/) 基础技能Linux 优点是不用配环境，类似于简答题，更贴近开发环境
+经常搞爬楼活动。目前在用它学 TypeScript。
+
+## 开源电子书
+- [JavaScript 教程 | 廖雪峰](https://www.liaoxuefeng.com/wiki/1022910821149312) 基础入手
+- [你不知道的JavaScript](https://github.com/getify/You-Dont-Know-JS) 进阶必备，在看
+
 ## 视频教程
 - [B站 | 渡一教育 | HTML+CSS零基础入学](https://www.bilibili.com/video/BV1ZE41177b6)
 - [B站 | 渡一教育 | JavaScript 零基础权威入学宝典](https://www.bilibili.com/video/BV1f4411R7M5)
 - [B站 | codewhy | HTML5-CSS3教程](https://www.bilibili.com/video/BV1F7411776X)
 - [2019 | B站 | codewhy | Vue 从入门到精通教程](https://www.bilibili.com/video/BV17j411f74d)
 
-
 ---
-
 
 ## 工具
 工欲善其事，必先利其器
@@ -28,9 +37,7 @@
 - [caniuse](https://caniuse.com/) 看一下浏览器对于标准的实现情况，好决定是否使用某个方法。
 - [Calibre](https://calibre-ebook.com/) 开源电子书管理，支持命令行，满足了我收集电子书的愿望。
 
-
 ---
-
 
 ## 书籍 
 技术书籍宜精不宜多，这种书籍不是可以快速阅读的。
@@ -57,35 +64,15 @@
 - 《WebKit技术内幕》浏览器内核，偏向底层的东西，一个经典的题目：谈一下你了解的浏览器内核
 - 《网络是怎样连接的》这一切都是如何发生的，经典的题目：从输入网址到看到页面，这其中发生了什么，看似一个面试题，涉及的知识面完全可以成为一本书。
 
-
-### 开源电子书
-- [JavaScript 教程 | 廖雪峰](https://www.liaoxuefeng.com/wiki/1022910821149312) 基础入手
-- [你不知道的JavaScript](https://github.com/getify/You-Dont-Know-JS) 进阶必备，在看
-
-
 ### 经典书籍
 - 《JavaScript高级程序设计》第三版【微信读书上有】，2012年出版，现在更像一个手册。推荐英文第四版。
 - 《JavaScript语言精粹》，2012年出版
 
-
-前端娱乐圈，发展快，推荐在线书籍。更新及时。
-
-
----
-
-
-## 课程
-- [极客时间 | 99元 | 重学前端](https://time.geekbang.org/column/intro/100023201)
+前端娱乐圈，发展快，推荐在线书籍，更新及时。
 
 
 ---
 
-
-## 试炼场
-- [freeCodeCamp](https://www.freecodecamp.org/) 英文版 可以了解到一些前端术语的英语表达，且涉及到算法。
-- [freeCodeCamp](https://www.freecodecamp.one/) 中文版，适合入门，类似于填空题，有项目题，检测结果较慢需要短暂等待。
-- [实验楼](https://www.shiyanlou.com/users/550342/) 基础技能Linux 优点是不用配环境，类似于简答题，更贴近开发环境
-经常搞爬楼活动。目前在用它学 TypeScript。
 
 ## 底层原理 
 想要搞清楚一些事儿，必须深入底层。
