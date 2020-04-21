@@ -110,6 +110,7 @@ module.exports = {
   title: '化学小子的前端实验册',
   description: '化学小子的前端实验册，记录学习中遇到的各种坑',
   base: '/fe/',
+  dest: 'docs/.vuepress/fe', // 输出目录
   themeConfig: {
     nav,
     sidebar: 'auto',
