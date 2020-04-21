@@ -98,6 +98,9 @@ const nav = [
       {
         text: 'Koa初体验',
         link: '/node-koa-start-learn/'
+      },{
+        text: '如何搞一个专属的 Hexo 的主题',
+        link: '/node-hexo-template-cemcoe/'
       }
     ]
   }
