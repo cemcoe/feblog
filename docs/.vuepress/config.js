@@ -89,6 +89,10 @@ const nav = [
         text: '以todolist为例，看前后端渲染',
         link: '/network-koa-todolist-ssr-spa-api/'
       },
+      {
+        text: '从博客迁移看跨域那点事儿',
+        link: '/network-cors-break-origin-from-remove-blog/'
+      },
     ]
   },
   {
