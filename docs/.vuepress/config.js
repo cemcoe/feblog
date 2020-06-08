@@ -4,7 +4,8 @@ const nav = [
     ariaLabel: 'Language Menu',
     items: [
       { text: '前端资料整理及学习记录', link: '/front-end-data-collation-and-learning-records/' },
-      { text: '前端探险路线图', link: '/front-end-adventure-roadmap/' }
+      { text: '前端探险路线图', link: '/front-end-adventure-roadmap/' },
+      { text: '读JavaScript高级程序设计', link: '/the-note-of-professional-javascript-for-web-developers/' }
     ]
   },
   {
