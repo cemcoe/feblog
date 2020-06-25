@@ -1,57 +1,89 @@
 ## 读JavaScript高级程序设计
 
 ## 第一章缘起
-总感觉自己前端的知识体系不是很系统，打算读一下这本很多人推荐的书。
-从书的目录来看，第三版有些东西在 2020 年可能已经无需再多关注，比如关于IE兼容方面的内容。
-笔记会以QA的方式为主进行总结。
+最近吧，总感觉自己的前端知识体系不是很系统。
+自己像个咸鱼一般，对于一些原理不是很熟悉，有点拿来就用或现用现查的“毛病”。
+
+于是立一个flag，看一下这本很多人推荐的书。
+
+从书的目录来看呢，第三版有些东西在 2020 年可能已经无需再多关注。
+比如关于IE兼容方面的内容。但不可否认，在知识体系结构方面是本好书。
+
+笔记会以 QA 的方式为主进行总结。
 
 第三版豆瓣 
 [https://book.douban.com/subject/10546125/](https://book.douban.com/subject/10546125/)
 
-第四版中文版预计 2020 下半年出，但那是 2019 年的计划，赶上这个事应该会推迟，从图灵社区来看，目前的状态是`正在排版`。
-
-英文版在网上已经流出来了，要想紧跟潮流，还是要学好英语呀。
-[https://www.ituring.com.cn/book/2472](https://www.ituring.com.cn/book/2472)
+第四版中文版预计 2020 下半年出，但那是 2019 年的计划，赶上这个事应该会推迟，从 [图灵社区](https://www.ituring.com.cn/book/2472)
+来看，目前的状态是`正在排版`。
 
 
 英文版亚马逊
 [https://www.amazon.com/Professional-JavaScript-Developers-Matt-Frisbie-ebook/dp/B07YP276S1/](https://www.amazon.com/Professional-JavaScript-Developers-Matt-Frisbie-ebook/dp/B07YP276S1/)
 
 
-认认真真读一本书，哪怕是在今天看书还是很有必要的。读书的时候呢，思想跟着作者，站在作者角度去思考，没准会有新的发现。
+认认真真读一本书，哪怕是在知识爆炸的今天，看书还是很有必要的。
+
+我曾经妄图使用手机学东西，经过反反复复的过程，我放弃了。诱惑是在是太多或者说这些 APP 就是在故意勾引我，最终还是回到了读书这种方式。
+
+读书的时候呢，思想跟着作者，站在作者角度去思考，没准会有新的发现。
 
 > 今天来看第一章，JavaScript简介。
 
 很久很久以前，有一个城堡。。。
 
-### 远古的故事
+### 1. 远古的故事
 
-很久以前上网就是为了获取信息，更多的是文本，没有视频什么的。网站也没有什么用户体验的考量。 
+很久以前上网就是为了获取信息，这里的信息更多的是文本，没有视频什么的。网站也没有什么用户体验的考量。能用就完事了。
 
-在布局方式上使用表格布局，为例解决布局问题诞生了很多的hack手段，不要问我有什么hack手段，我还年轻。。。
+温饱思淫欲，，，
+
+据说当时在布局方式上使用表格布局，为了解决布局问题诞生了很多的hack手段，不要问我有什么 hack 手段，我还年轻。。。
+
+然而历史的车轮滚滚向前，人类却从未从历史中吸取过教训。
+
+那些年浏览器的兼容问题令人头疼，现在的各种小程序又何尝不是让人感到又有那味儿了。
 
 在苹果发布手机时，提了一个概念叫做用户体验，洋名是 User Experience，简称UE/UX，此时互联网公司也开始注意到网页与用户的交互问题。
 
-### 组成部分
-通常所说的 JavaScript 其实包含三部分，ECMAScript | DOM | BOM，BOM 因为早期对窗口的滥用，浏览器做了很多的安全限制，现在相对于 DOM 使用的不是很多。而随着 MVVM 框架的出现，现在也很少直接操作 DOM，重点应该放在 ECMAScript 上，现在每年都会推出新的规范，现在最新的是 ECMAScript2020，属于广义上的ES6。
+对了，几天前苹果在 iOS14 发布会上又搞出来一种 APP Clip，嗯，浏览器大战换成了小程序大战。
+
+据不完全统计，现在的平台有微信小程序，支付宝小程序，百度小程序，字节跳动小程序，QQ小程序，快应用，360小程序，PWA，APP Clip。
+
+以前前端开发要解决浏览器兼容问题，现在，嗯，10多种小程序环境还有部分的浏览器问题，加一块简直不要太他喵的酸爽。
+
+兼容性是前端一生之敌。抽空看一看uni-app，据说这货可以跨端开发。但总隐约觉得不靠谱。
 
 
-### 参考标准
-在制定规范时参考的标准
+
+### 2. JavaScript组成部分
+通常所说的 JavaScript 其实包含三部分，ECMAScript | DOM | BOM。
+
+BOM 因为早期对窗口的滥用，浏览器做了很多的安全限制，现在相对于 DOM 使用的不是很多。
+
+而随着 MVVM 框架的出现，现在也很少直接操作 DOM。
+
+JavaScript拢共也就就三部分，现在其中的两个都因部分原因不被重视，所以我们学习的重点应该放在 ECMAScript 上，现在每年都会推出新的规范，现在最新的是 ECMAScript 2020，属于广义上的ES6。
+
+
+### 3. 制定规范时参考标准
+这些人在制定规范时参考的标准
 - 将和浏览器相关的代码删除
 - 全面支持 Unicon 标准
-- 对象和平台无关 JavaScript款平台
+- 对象和平台无关
 
-98年标准发布到 2020，12年了。
+98 年标准发布到 2020，12年了。
 
-所以，重点应该放在对 ECMAScript 的使用上，这是基础。
+所以，重点应该放在对 ECMAScript 的使用上，这是重点重点重点。
+
+第一章更新于625。
 
 ---
 
 ## 第二章 在 HTML中使用 JavaScript
 
 
-### script 标签属性的变化
+### 1. script 标签属性的变化
 首先是 script 标签的属性问题，在第三版中提到有6个属性，在第四版中已经变成了8个。
 ```md
 // 第三版
@@ -60,12 +92,12 @@ async charset defer language src type
 async charset crossorigin defer intergrity language src type src type
 ````
 
-可以看出多出来的两个属性是crossorigin intergrity。
+可以看出多出来的两个属性是 crossorigin intergrity。
 
-废话了这么多，实际上使用最多的就是一个`src`属性。
+然而并没什么，废话了这么多，实际上使用最多的就是一个 `src` 属性。
 
-### 运行流程
-在第三版 11页 中有那么一句话。
+### 2. 运行流程预编译
+在第三版 11 页中有那么一句话。
 
 > 包含在 script 元素内部的 JavaScript 代码将被从上至下依次解释。
 
@@ -74,17 +106,12 @@ async charset crossorigin defer intergrity language src type src type
 对于 JavaScript，预处理 + 执行 = 解释，这里展开会有很多内容，涉及变量提升，作用域等高阶知识，有空单独写。
 
 
-### 标签放哪里 
+### 3. 标签放哪里 
 js代码会阻断代码运行，通常会将 script 放到文档底部。
 
 那么有没有情况一定要放到前面？ 
 
-你别说，还真有，比如 Vue，[https://github.com/vuejs/vuejs.org/blob/master/src/v2/examples/vue-20-hello-world/index.html](https://github.com/vuejs/vuejs.org/blob/master/src/v2/examples/vue-20-hello-world/index.html)，在这里例子里 script 放到了 head 里面，这是因为后面要用到，如果将 script 放到文档的底部，那么在该 js 文件未加载前是无法使用 Vue 的。
-
-### 问题
-- JavaScript 的运行机制是什么？
-- 单独将 JavaScript 抽离的优点是什么？
-- JavaScript 放到文档哪里比较好？
+你别说，还真有，比如 Vue，[https://github.com/vuejs/vuejs.org/blob/master/src/v2/examples/vue-20-hello-world/index.html](https://github.com/vuejs/vuejs.org/blob/master/src/v2/examples/vue-20-hello-world/index.html)，在这里，例子里 script 放到了 head 里面，这是因为后面要用到，如果将 script 放到文档的底部，那么在该 js 文件未加载前是无法使用 Vue 的。
 
 ---
 
@@ -1307,4 +1334,180 @@ location.href = 'https://cemcoe.com'
 
 ---
 
-第10到12章是关于DOM的内容。下面来看一波。
+## 第十到十二章
+
+> 这一篇呢是第10章到第12章的汇总，DOM 的相关知识，这些东西让 JavaScript 有了操作网页的能力，但像Vue等框架的出现，让开发工作不再直接地操作 DOM，这部分地知识相对会弱化一些，不过一些 API 还是要熟悉一下地。这就是将这几章汇总的原因。
+
+1. 什么是DOM?
+2. DOM 是用来干什么的？
+3. 如何选取DOM元素？
+4. 如何访问节点的属性？
+
+### 1. 什么是DOM?
+DOM 的全称是 Document Object Model，中文名叫文档对象模型。
+![来自维基百科](https://upload-images.jianshu.io/upload_images/3750332-0b9f9669f00c6275.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+和原型链作用域链有那么些相似。
+
+这种类型或者说是关系是很常见的，比如历史上的中央集权制度。
+![中央集权制度](https://upload-images.jianshu.io/upload_images/3750332-dbdfce198f6effb8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+以及现在的公司架构也是类型的结构。
+![公司架构](https://upload-images.jianshu.io/upload_images/3750332-82c03b56d300c481.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+这种关系在数据结构和算法中有个术语叫做树结构，抽象之后长下面的样子。
+![树结构](https://upload-images.jianshu.io/upload_images/3750332-256142f54eebcd8e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+图片来源： [https://www.cnblogs.com/QG-whz/p/5168620.html](https://www.cnblogs.com/QG-whz/p/5168620.html)
+
+### 2. DOM 是用来干什么的？
+讲了这么多，那么 DOM 有何用? 有了 MVVM 框架，现在直接操作 DOM 的地方确实是少了，取而代之的是通过控制数据来改变页面的视图层。所以这里也不多介绍。
+
+### 3.如何选取DOM元素？
+
+选择使用 
+- querySelector() 
+- querySelectorAll()
+
+书中还提到一个方法叫做 `matchesSelector()`，但搜索一下可以发现，这个东西被改成了 `matches()`。所以看这本书时还是要小心一点的，有些东西已经随着时间发生了改变。没什么能躲过时间的摧残。
+
+综上，选取元素可以使用 querySelector() querySelectorAll() matches()，具体用法自行探索。
+
+![matches](https://upload-images.jianshu.io/upload_images/3750332-5a5b20087d3f618d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+## H5
+元素选取相关：
+- getElementsByClassName()
+- getElementById()
+
+对类的增删改查
+- add
+- contains
+- remove
+- toggle
+
+
+----
+### 4. 如何访问节点的属性？
+对于连字符的属性名转换成驼峰命名。
+```js
+// 访问
+const color = demo.style.backgroundColor
+
+// 修改
+demo.style.backgroundColor = '#f40'
+```
+当然了，一般很少直接使用 js 修改样式值，这样的需求一般是通过切换 class 名实现的。因为直接使用 js 修改样式，js 和 css 代码会混杂在一起，不符合结构行为样式相分离的规范。
+
+接下来是元素尺寸相关的问题。和 BOM 尺寸放在一起有空看。
+
+好嘞，就这些。
+
+
+## 第十三章
+> 这一篇呢是第13章，内容是和事件相关。
+
+事件可以看成是条件判断的一种条件，逻辑是某个元素发生了某个事情，我要做出相应的反应。
+
+有个叫做ifttt的服务将这种逻辑发挥到了极致。
+
+![ifttt](https://upload-images.jianshu.io/upload_images/3750332-d430698cbfaa9bf6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+核心是如何监控事件，进而引发有哪些事件可以监控的问题？
+
+知识点：
+1.我点的是谁？
+2.如何监测事件？
+3.有哪些事件可以监听？
+4.要监听的事件过多，处理不过来，怎么办？
+5.我可不可以自定义事件嘞？
+
+### 1.我点的是谁？
+![](https://upload-images.jianshu.io/upload_images/3750332-3f05842c341fd7f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+当1被点击时，2和3被点击了吗？这里的规定是是的，甚至整个页面都被点击了，这其实有点地图炮的意味，某人怎样可以上升到某省怎样，再上升到全人类怎样。
+
+既然都被点击了，那我要监控某个元素要如何搞，虽然都被点击了，但总要有个先后顺序的。
+
+事件冒泡event bubbling，事件从最具体的元素接收，向上传播，即1->2->3
+
+事件捕获event capturing，不太具体的节点最早接收事件，最具体的节点最后接收事件，目的是再事件到达预定目标前捕获事件，让事件去遛一圈，我好准备，即3->2>1。
+
+DOM2级事件规定的流程是：事件捕获，处于目标阶段，和事件冒泡。即3->2->1->2->3。
+
+整的还挺复杂。
+
+### 2.如何监测事件？
+```js
+// DOM0 级事件处理程序
+btn.onclick = function(){}
+btn.onclick = null
+
+// DOM2 级事件处理程序
+btn.addEventListener('click', function(){}, false)
+// false 指事件处于冒泡阶段时触发。
+```
+
+### 3.事件对象长啥样？
+当触发DOM事件时，会产生一个事件对象event，该对象包含了与事件相关的信息。
+```js
+document.addEventListener('click', e=>console.log(e), false)
+```
+![event](https://upload-images.jianshu.io/upload_images/3750332-13e53f3e45225f16.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+3.有哪些事件可以监听？
+根据手机壳改变主题。
+
+用的最多的要数click事件，其实可以监听的事件还有很多种。这里列出使用过的。
+
+click 点击事件
+scroll 事件在移动端经常使用
+focus 获得焦点
+blur 失去焦点
+鼠标事件，最近喜欢上了触摸板，就不测试了。
+
+
+移动端事件，300ms延迟。
+触摸事件：
+touchstart
+touchmove
+touchend
+touchcancel
+
+### 4.要监听的事件过多，处理不过来，怎么办？
+监听的事件过多，会消耗计算资源，如何节省计算资源呢？事件委托并移除事件处理程序。
+
+很简单，有事秘书干。这个术语叫做事件委托，指定一个事件处理程序管理某一类型的所有事件。
+
+思路是在顶层注册事件，在回调中判断点击的实际对象并做相应的处理。click非常适合采用事件委托技术。
+
+### 5.我可不可以自定义事件嘞？
+说白了，事件对象就是一系列属性的集合，前面看到的各种事件不过时一些属性上的差异，如果我们创建一个对象并比照event对象添加一些属性，那么就可以自定义事件了，术语叫做模拟事件。
+
+模拟事件的流程：创建 event 对象，相关信息初始化，触发事件。
+
+
+## 第二十章JSON
+> 第14至19章有特定的应用场景，这里先略过。先看第20章，跨度有点大，该章内容主要是对JSON这种数据格式的讲解。
+
+### 1.JSON的格式规范有哪些？
+在 [Mock | 数据过家家](https://www.jianshu.com/p/9f4af893e9e7) 中其实就用到了JSON这种数据格式。目前，前后端数据传输是使用这种数据格式进行的。
+
+当你打开接口时看到的可能是这样的：
+![很整洁](https://upload-images.jianshu.io/upload_images/3750332-01ca4c4e516cda48.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+很乱有没有，这时需要一个叫做 JSON Formatter 的插件来帮我们美化一下。
+![这样才对](https://upload-images.jianshu.io/upload_images/3750332-ff2d9cb8dd99e9c5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+### 解析和序列化
+`JSON.parse()` 把 JSON 字符串解析为原生 JavaScript 值
+`JSON.stringify()` 将JavaScript 对象序列化为 JSON 字符串
+![](https://upload-images.jianshu.io/upload_images/3750332-883d14fd5414c906.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+JSON.stringify()可以搞三个参数
+- 要序列化的 JavaScript 对象外
+- 过滤器，可以是一个数组，也可以是一个函数
+- 选项，表示是否在 JSON 字符串中保留缩进
+
+
+JSON 这种数据格式连接了前端和后端，就像时人体中的养料，下一章是人体中的运输工具 ajax。
+
