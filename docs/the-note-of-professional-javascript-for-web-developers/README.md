@@ -1,30 +1,24 @@
 ## 读JavaScript高级程序设计
 
-## 第一章缘起
+## 第一章 缘起
 最近吧，总感觉自己的前端知识体系不是很系统。
 自己像个咸鱼一般，对于一些原理不是很熟悉，有点拿来就用或现用现查的“毛病”。
 
 于是立一个flag，看一下这本很多人推荐的书。
 
 从书的目录来看呢，第三版有些东西在 2020 年可能已经无需再多关注。
-比如关于IE兼容方面的内容。但不可否认，在知识体系结构方面是本好书。
+比如关于 IE 兼容方面的内容。但不可否认，在知识体系结构方面是本好书。
 
 笔记会以 QA 的方式为主进行总结。
 
-第三版豆瓣 
-[https://book.douban.com/subject/10546125/](https://book.douban.com/subject/10546125/)
 
-第四版中文版预计 2020 下半年出，但那是 2019 年的计划，赶上这个事应该会推迟，从 [图灵社区](https://www.ituring.com.cn/book/2472)
-来看，目前的状态是`正在排版`。
-
-
-英文版亚马逊
-[https://www.amazon.com/Professional-JavaScript-Developers-Matt-Frisbie-ebook/dp/B07YP276S1/](https://www.amazon.com/Professional-JavaScript-Developers-Matt-Frisbie-ebook/dp/B07YP276S1/)
+主要参考 [第三版](https://book.douban.com/subject/10546125/)，第四版中文版预计 2020 下半年出，但那是 2019 年的计划，赶上今年这个事应该会推迟，从 [图灵社区](https://www.ituring.com.cn/book/2472)
+来看，目前的状态是`正在排版`。[英文版](https://www.amazon.com/Professional-JavaScript-Developers-Matt-Frisbie-ebook/dp/B07YP276S1/) 已经在亚马逊上架了。
 
 
 认认真真读一本书，哪怕是在知识爆炸的今天，看书还是很有必要的。
 
-我曾经妄图使用手机学东西，经过反反复复的过程，我放弃了。诱惑是在是太多或者说这些 APP 就是在故意勾引我，最终还是回到了读书这种方式。
+我曾经妄图使用手机学东西，经过反反复复的循环过程，我放弃了。诱惑是在是太多或者说这些 APP 就是在故意勾引我，这些 APP 是真的狗。最终还是回到了读书这种方式。
 
 读书的时候呢，思想跟着作者，站在作者角度去思考，没准会有新的发现。
 
@@ -38,11 +32,11 @@
 
 温饱思淫欲，，，
 
-据说当时在布局方式上使用表格布局，为了解决布局问题诞生了很多的hack手段，不要问我有什么 hack 手段，我还年轻。。。
+据说当时在布局方式上使用表格布局，为了解决布局问题诞生了很多的 hack 手段，不要问我有什么 hack 手段，我还年轻。。。
 
 然而历史的车轮滚滚向前，人类却从未从历史中吸取过教训。
 
-那些年浏览器的兼容问题令人头疼，现在的各种小程序又何尝不是让人感到又有那味儿了。
+那些年浏览器的兼容问题令人头疼，现在的各种小程序又何尝不是让人感到又有那味儿了呢？
 
 在苹果发布手机时，提了一个概念叫做用户体验，洋名是 User Experience，简称UE/UX，此时互联网公司也开始注意到网页与用户的交互问题。
 
@@ -76,7 +70,7 @@ JavaScript拢共也就就三部分，现在其中的两个都因部分原因不�
 
 所以，重点应该放在对 ECMAScript 的使用上，这是重点重点重点。
 
-第一章更新于625。
+第一章更新于626。
 
 ---
 
@@ -84,7 +78,7 @@ JavaScript拢共也就就三部分，现在其中的两个都因部分原因不�
 
 
 ### 1. script 标签属性的变化
-首先是 script 标签的属性问题，在第三版中提到有6个属性，在第四版中已经变成了8个。
+首先是 script 标签的属性问题，在第三版中提到有 6 个属性，在第四版中已经变成了 8 个。
 ```md
 // 第三版
 async charset defer language src type
@@ -105,24 +99,26 @@ async charset crossorigin defer intergrity language src type src type
 
 对于 JavaScript，预处理 + 执行 = 解释，这里展开会有很多内容，涉及变量提升，作用域等高阶知识，有空单独写。
 
+请看[第二章番外何为解释？](#第二章番外何为解释？)
+
 
 ### 3. 标签放哪里 
 js代码会阻断代码运行，通常会将 script 放到文档底部。
 
 那么有没有情况一定要放到前面？ 
 
-你别说，还真有，比如 Vue，[https://github.com/vuejs/vuejs.org/blob/master/src/v2/examples/vue-20-hello-world/index.html](https://github.com/vuejs/vuejs.org/blob/master/src/v2/examples/vue-20-hello-world/index.html)，在这里，例子里 script 放到了 head 里面，这是因为后面要用到，如果将 script 放到文档的底部，那么在该 js 文件未加载前是无法使用 Vue 的。
+你别说，还真有，比如 Vue，[demo](https://github.com/vuejs/vuejs.org/blob/master/src/v2/examples/vue-20-hello-world/index.html)，在这里，例子里 script 放到了 head 里面，这是因为后面要用到，如果将 script 放到文档的底部，那么在该 js 文件未加载前是无法使用 Vue 的。
 
 ---
 
-## 第二章番外何为解释？
-对于 JavaScript，预处理 + 执行 = 解释，解释没那么简单，那么究竟什么是解释？
+## 第二章番外 何为解释？
+对于 JavaScript，解释 = 预编译 + 执行，解释没那么简单，那么究竟什么是解释？
 
-### 解释解释
+### 1. 解释解释
 你来解释解释什么是解释？
 
 什么，TMD的是解释？
-![什么是解释](https://upload-images.jianshu.io/upload_images/3750332-a7aee447ab196145.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![什么是解释](./imgs/2jiesi.jpg)
 
 
 本来打算有空就写的，结果苟了几天，没有写了，感觉自己废了。
@@ -147,10 +143,8 @@ js代码会阻断代码运行，通常会将 script 放到文档底部。
 
 心态炸了，有没有？
 
-![解释](https://upload-images.jianshu.io/upload_images/3750332-b22ea92db3216512.gif?imageMogr2/auto-orient/strip)
 
-
-### 这玩意怎么解释
+### 2. 这玩意怎么解释
 解释 = 预处理 + 执行，解释这个东西要怎么解释？
 
 书上没有呀，这时可以拿起另一本书 [你不知道的JavaScript（上卷）](https://book.douban.com/subject/26351021/) 来看一看。
@@ -158,7 +152,7 @@ js代码会阻断代码运行，通常会将 script 放到文档底部。
 
 
 
-### 预编译过程
+### 3. 预编译过程
 
 来看一个例子：
 ```js
@@ -215,7 +209,7 @@ console.log('c', c)
 
 两者的区别在于 a 最后补上了声明，而 c 始终没有声明。a 给人的感觉就是我先用，声明先欠着，等到某天我会还上的。而 c 完全就没有想要补上声明的意思。
 
-### 看一个例子
+### 4. 看一个例子
 再来看一个例子，控制台会输出什么？
 ```js
 // eg4
@@ -239,7 +233,7 @@ var a = 123
 
 有一种刚学会 1+1 就要去做微积分的感觉。
 
-### 来预编译
+### 5. 来预编译实战
 
 再来一题：
 ```js
@@ -258,15 +252,14 @@ function fn(a) {
 fn(1)
 ```
 口说无凭，打个断点调试一下。
-![打个断点](https://upload-images.jianshu.io/upload_images/3750332-157f7d68306d6e6d.gif?imageMogr2/auto-orient/strip)
+![打个断点](./imgs/2debug1.gif)
 
 真刺激。
-![打个断点](https://upload-images.jianshu.io/upload_images/3750332-cf21bcddb96ead3a.gif?imageMogr2/auto-orient/strip)
 
 
 预编译发生在函数执行的前一刻。
 
-### 预编译四部曲
+### 6. 预编译四部曲
 1. 创建 AO 对象 Activation Object 执行期上下文
 2. 找形参和变量声明，将变量和形参的名挂上，并赋值undefined
 3. 将形参和实参相统一
@@ -353,7 +346,7 @@ AO {
 我们来提炼一下，在预处理时，赋值函数体在形参和实参统一的后边，变量的赋值是在函数执行时发生的。
 
 
-### 练习
+### 7. 练习
 ok，来道题练一练，下面的console都会打印什么东西？
 
 ```js
@@ -412,9 +405,11 @@ AO {
 
 简单。，，这就是解释还没完，有空再写。
 
+本章更新于626。
+
 ---
-## 第三章
-> 这是第三章基本概念，这一章涉及变量，操作符，语句和函数等相关内容。
+## 第三章 基本概念
+> 这是第三章基本概念，这一章涉及变量，操作符，语句和函数等相关内容。是各种编程语言都有的部分。
 
 主要的知识点：
 - ECMAScript 中究竟有几种数据类型？
@@ -425,16 +420,22 @@ AO {
 - for of 语句使用场景？
 
 
-### 1.数据类型的变迁
-ECMAScript 的数据类型在网上的资料存在三次变迁。
+### 1. 数据类型的变迁
+根据网上的资料可以知道 ECMAScript 的数据类型存在三次变迁。
 
-刚开始的数据类型：Null Undefined Boolean Number String Object
-ES6来了之后：Symbol
-ES2020来了之后：BigInt
+刚开始的 6 种数据类型：Null Undefined Boolean Number String Object
 
-所以说站在 ES2020 的角度来看，ECMAScript 有 8 种数据类型。高程这本书第三版是最开始的6种的情况，第四版提到了Symbol。同时撇开Object还被称为complex data type，其他7种数据类型还称primitive types。
+ES6 来了之后添加了一个新成员：Symbol
 
-![数据结构的变迁](https://upload-images.jianshu.io/upload_images/3750332-5897b55b28964969.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+ES2020 来了之后添加了另一个新成员：BigInt
+
+所以说站在 ES2020 的角度来看，ECMAScript 有 8 种数据类型。
+
+高程这本书第三版是最开始的 6 种的情况，第四版提到了Symbol。
+
+同时还有另一种分类方法，Object还被称为complex data type，其他7种数据类型还称primitive types。
+
+![数据结构的变迁](./imgs/3datatypechange.png)
 
 
 来看一下两个新朋友，Symbol 和 BingInt。
@@ -443,9 +444,21 @@ Symbol 在 js 中代表独一无二的值，目前能想到的应用场景是，
 
 BingInt其实也算是[老朋友](https://www.jianshu.com/p/d8b8ed62384f)了。
 
-好的我们现在已经知道了ESMAScript中有Null Undefined Boolean Number String Object Symbol BigInt 8 种数据类型，接下来的问题是当我们拿到一个数据，比如通过 ajax 向后端请求到数据后，如何检测该数据的数据类型？
+好的，我们现在已经知道了 ESMAScript 中有Null Undefined Boolean Number String Object Symbol BigInt 8 种数据类型，接下来的问题是当我们拿到一个数据，比如通过 ajax 向后端请求到数据后，如何检测该数据的数据类型？
 
-### 2.数据类型的检测
+### 2. 数据类型的检测
+为什么要对数据的类型进行检测？想必大家在高考时都见过类似的题目：
+![](./imgs/3question1.png)
+
+做事情前要验明正身，是谁，是敌人还是朋友，对人体有害吗？
+
+这里对数据进行检测是因为每种数据类型有不同的特性或者说是结构，有不同的处理方案。
+
+在搞事情前的第一步要搞清楚这个数据是个啥玩意儿？化学种可以使用各种试剂比如银氨溶液等来检测。
+
+而在这里对于数据类型的检测可以使用几个方案。
+
+
 typeof instnceof 
 每种检测方法各有优缺点，下面依次测试。
 首先的typeof ，需要注意两点，typeof 是操作符，使用时可以不加括号，其次使用typeof检测的结果本身的数据结构是字符串，即
@@ -453,7 +466,7 @@ typeof instnceof
 typeof (typeof 管你是你哈) ===  'string'
 ```
 
-![typeof](https://upload-images.jianshu.io/upload_images/3750332-ea0288e4a3ebdaf3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![typeof](./imgs/3typeof.png)
 
 
 从图中可以看出 typeof 的结果和数据类型并不是严格意义上的一一对应，和我们料想的不一样的点在于 Object 和 Null。
@@ -469,14 +482,16 @@ typeof (typeof 管你是你哈) ===  'string'
 
 还有instanceof方法检测，后面再说。
 
-### 3.类型转换
+如何检测空数组？如何检测空对象？
+
+### 3. 类型转换
 就像水可以在自然界中通过一定的条件在气态，液态和固态间不断转化一样，数据的类型也可以通过一些方式进行转变。
 
 这里的转换方式分为两种，分别是隐式类型转换和显式类型转换。
 
-作为判断条件时，给类型会被隐式转换成Boolean类型。
+但总结。。。
 
-### 4.ES2020 新增操作符
+### 4. ES2020 新增操作符
 ```md
 ?? 空值合并运算符
 ?. 可选链操作符
@@ -499,15 +514,16 @@ let age = obj.cemcoe?.age;
 ```
 
 
-### 5.for of 语句
+### 5. for of 语句
 先来一段很熟悉的代码：
 ```js
 for (let i = 0; i < arr.length; i++){}
 ```
 上面是经常用到的操作，对数据进行遍历，但有时我们可能并不需要索引，即上文中的i，我们只想要对item进行相关的操作，这时上面的方法就有点笨重了，那么如何解决呢？
 
-可以使用for of。
+可以使用 for of。
 
+本章更新于626
 
 ---
 
