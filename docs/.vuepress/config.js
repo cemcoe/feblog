@@ -94,6 +94,10 @@ const nav = [
         text: '从博客迁移看跨域那点事儿',
         link: '/network-cors-break-origin-from-remove-blog/'
       },
+      {
+        text: '以虎符为引看前端登录与用户管理',
+        link: '/front-end-login-and-user-management-based-on-hufu/'
+      }
     ]
   },
   {
