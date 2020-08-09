@@ -1,12 +1,27 @@
 前段时间企图通过 [以四条链串一串前端的那些事儿](https://www.jianshu.com/p/69c6243fa013)，经过一番尝试后我发现我串不起来。
 
-那就换个思路，用一些题一些书和一些博客来串一串前端那些事儿。
+那就换个思路，用一些题一些书和一些博客来串一串前端那些事儿，以题为引，以书为参考，以博客为补充。
+
+参考的书籍包括但不限于以下几本：
+- 《JavaScript高级程序设计》
+- 《你不知道的JavaSript》
+- 《CSS权威指南》
+- 《深入理解ES6》
+
+本文只会提供回答题目的大致的方向，具体的内容请参考相应的书籍，背题没什么意思，若本文中内容与书不同，请相信书上的。
+
+文字可能没有什么分量，看一下我前几天到的书吧。虽说只有四本书，但《你不知道的JavaSript》有三册，《CSS权威指南》有两册。
+
+文字的厚重电子书是无法感知的，而纸质书可以让你真切地感受到这份重量。
+
+![books](./books.png)
 
 
+本文档会随着本人的自我成长而不断完善，可能，大概，也许，今天的理解在未来的某个时间点发生变化。
 
 ## 考察的大方向
 
-先来确定大方向，大方向不要错。枪在手，跟我走。
+从网上找来的宏观考察点。先来确定大方向，大方向不要错。枪在手，跟我走。
 
 - 基础知识（HTML、CSS、JS）
 - 高级部分（源码、优化等）
@@ -15,7 +30,7 @@
 
 ## 自我介绍
 
-基本信息：我叫xxx， 我2019年毕业于xxx，上一份工作是在xx公司。
+基本信息：我叫xxx， 我2019年毕业于xxx，我大学的专业是xxx，上一份工作是在xx公司担任xxx职务。
 
 项目经验：主要负责xx网站维护和开发，技术栈使用Vue全家桶，同时使用node开发中间层。
 
@@ -23,15 +38,63 @@
 
 
 ## HTML
+单独考察 HTML 的题目不是很多，常常配合CSS和JS来考察。
 
-### 0. HTML5新特性，语义化？
+### 1. HTML5新特性，语义化？
 子问题，对语义化的理解？HTML5新增的标签。
 
 - canvas api 较多且应用场景有限，暂且不管。
+- 对本地离线存储有更好的支持，localStorage长期存储数据，浏览器关闭后数据不丢失；sessionStorage的数据在浏览器关闭后自动删除
+
+
+### 2. 常用的meta标签
+```html
+<!-- 抄自jianshu -->
+<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+
+  <!-- Start of Baidu Transcode -->
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="MobileOptimized" content="width"/>
+  <meta name="HandheldFriendly" content="true"/>
+  <meta name="mobile-agent" content="format=html5;url=https://www.jianshu.com/u/e20f22d3e8d3">
+  <!-- End of Baidu Transcode -->
+
+    <meta name="description"  content="少玩简书多读书">
+
+  <meta name="tencent-site-verification" content="39a5ed77a02c0103af6ac08addbc3851"/>
+  <meta name="360-site-verification" content="604a14b53c6b871206001285921e81d8" />
+  <meta property="wb:webmaster" content="294ec9de89e7fadb" />
+  <meta property="qc:admins" content="104102651453316562112116375" />
+  <meta property="qc:admins" content="11635613706305617" />
+  <meta property="qc:admins" content="1163561616621163056375" />
+  <meta name="google-site-verification" content="6ARJIxhZLIgZT7J8MZkENr5mR0-CqshgzYyA3r3jBWU" />
+  <meta http-equiv="mobile-agent" content="format=html5; url=https://www.jianshu.com/u/e20f22d3e8d3">
+
+  <!-- Apple -->
+  <meta name="apple-mobile-web-app-title" content="简书">
+
+  
+
+    <title>cemcoe - 简书</title>
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="yOdlTYWqpFdlcgvD9X3d8xxxxxxxxxxxy64ZXwH2cFOlsnCo+dlsiLNRYwknNeblVOPK5MQmZhyxwrDg==" />
+```
+
 
 ## CSS
 
-这部分的参考资料主要是 《CSS权威指南第四版》，会给出页码。
+这部分的参考资料主要是 《CSS权威指南第四版》，会给出页码。知识点包括盒模型，选择器，居中方案，浮动，flex，grid。
+
+其他的东西用到了查文档就好了，不必强行记忆。
+
+
+### 0. 待学习的知识点
+- 视差滚动（Parallax Scrolling）
 
 ### 0. [盒模型P316](https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/The_box_model)
 
@@ -205,6 +268,17 @@ border padding 可用单位很多，这里提一下使用百分比时注意的�
 
 鉴于此，可以借助这个特性实现成比例地盒子。比如长宽2：1的盒子。
 
+在div的width为固定的情况下，设置height为0，使内容自然溢出，再通过设置padding-bottom使元素有一定高度。
+```css
+.element {
+  /* height: 0px, 防止矩形被里面的内容撑出多余的高度*/
+  width: 100vw; 
+  height: 0px; 
+  padding-bottom: 50%;
+  background: blue;
+}
+```
+
 
 
 ### 0. CSS选择器特指度权重问题p106
@@ -218,6 +292,34 @@ ID选择器：#ID 0，1，0，0
 
 伪类选择器：a:hover 0，0，1，0
 属性选择器：input[type="text"]  0，0，1，0
+```
+
+### 0. 伪类和伪元素
+伪类用于当已有元素处于某个状态时，为其添加对应对的样式，这个状态是根据用户行为而动态变化。
+a标签用户访问前后。动态的。
+
+设计伪元素的目的就是去选取诸如元素内容第一个字（母）、第一行，选取某些内容前面或后面这种普通的选择器无法完成的工作。
+```css
+a:link{
+  color: blue;
+}
+a:visited{
+  color: yellow;
+}
+a:hover{
+  color: red;
+}
+a:active{
+  color: pink;
+}
+```
+
+伪元素用于创建一些不在文档树中的元素，并为其添加样式。伪元素是对元素中的特定内容进行操作。静态的。
+一句话的第一个字母。
+```css
+h6::first-letter {
+  font-size: 24px;
+}
 ```
 
 
@@ -285,23 +387,86 @@ BFC最大的一个作用就是：在页面上有一个独立隔离容器，容�
 根据浏览器或设备的分辨率可以计算获取到相应的尺寸，通过不同的尺寸可以动态的修改html元素或者盒子在浏览器中的大小，从而实现响应式。
 
 响应式解决方案：
-
-- 媒体查询
 - 百分比
 - rem
+- 媒体查询
+
 
 rem是根据根的font-size变化，而em是根据父级的font-size变化。
 
-### 2. 常见布局解决方案
 
-太多不展开。
 
-### 3. 水平垂直居中
+### 2. 水平垂直居中
 [CSS | 绝对的固定C位](https://www.jianshu.com/p/41b9318839d8)
+
+被居中的元素是inline或者inline-block元素
+```css
+.container{
+  width: 600px;
+  height: 600px;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+```
+
+
+transfrom
+```css
+.container{
+  width: 100%;
+  height: 600px;
+  position: relative;
+}
+.center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+```
+
+flex 布局
+```css
+.container{
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+```
+
+最简单的方法
+```css
+.container{
+  display: flex;
+  height: 600px;
+}
+.center{
+  margin : auto;
+}
+```
+### 3. 常见布局解决方案
+[两栏布局那些事](../css-two-column-layout/)
+
+实现左边定宽，右边自适应布局
+
+（1）左盒子左浮动，右盒子width=100%
+
+（2）左盒子左浮动，右盒子margin-left=左盒子宽度
+
+（3）左盒子左浮动，右盒子右浮动，设置width: calc（100% - 左盒子宽度）
+
+（4）父容器设置display：flex，右盒子flex：1
+
+[三栏布局那些事](../css-three-column-layout/)
+
+实现中间自适应宽度，左右两栏固定宽度布局
 
 
 ### 4. dom树和cssom树原理
-这个问题有点深了，其实也是从浏览器输入url到页面显示经历了哪些？问题的一部分。
+这个问题有点深了，其实也是从浏览器输入url到页面显示经历了什么？问题的一部分。
 
 先放一个链接
 [constructing the object model](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/constructing-the-object-model?hl=zh-cn)
@@ -328,19 +493,46 @@ rem是根据根的font-size变化，而em是根据父级的font-size变化。
 ### 7. 一个具体的布局方案
 有一个高度自适应的div，里面有两个div，一个高度100px，希望另一个填满剩下的高度。这题有js解法、一般css解法、css3解法等。
 
-总结一下，css中一个概念盒模型，两个问题margin塌陷，浮动清除，三种布局，常规布局，flex，grid布局。
+### 8. 浏览器是怎样解析CSS选择器的？
+
+dom树和cssom树原理中的知识点，需要数据结构相关的知识储备。
+
+CSS选择器的解析是从右向左解析的，为了避免对所有元素进行遍历。
+
+若从左向右的匹配，发现不符合规则，需要进行回溯，会损失很多性能。
+
+若从右向左匹配，先找到所有的最右节点，对于每一个节点，向上寻找其父节点直到找到根元素或满足条件的匹配规则，则结束这个分支的遍历。
+
+两种匹配规则的性能差别很大，是因为从右向左的匹配在第一步就筛选掉了大量的不符合条件的最右节点（叶子节点），而从左向右的匹配规则的性能都浪费在了失败的查找上面。
+
+而在 CSS 解析完毕后，需要将解析的结果与 DOM Tree 的内容一起进行分析建立一棵 Render Tree，最终用来进行绘图。在建立 Render Tree 时（WebKit 中的「Attachment」过程），浏览器就要为每个 DOM Tree 中的元素根据 CSS 的解析结果（Style Rules）来确定生成怎样的 Render Tree。
+
+
+总结一下，CSS 中一个概念盒模型，两个问题 margin 塌陷，浮动清除，三种布局，常规布局，flex，grid布局。
 
 
 ## JavaScript
 
 主要参考书籍《你不知道的JavaScript》
 
+### 0. JavaScript的执行过程
+预编译+生成可执行代码
+
 
 ### 1. 数据类型8种，类型检测，类型转换
 [03 | 读JavaScript 高程](https://www.jianshu.com/p/c9fe9227ce12)
-基本类型和引用类型的区别是什么？null 和 undefined 区别是什么？
-“一切皆对象”怎么理解？ number 也是对象么？字符串也是对象么？
+
+基本类型和引用类型的区别是什么？
+
+null 和 undefined 区别是什么？
+
+“一切皆对象”怎么理解？ 
+
+number 也是对象么？字符串也是对象么？
+
 0.1 + 0.2 精度问题？
+
+'cemcoe'.length 字符串为什么可以像对象一样拥有属性？
 
 ### 2. 数组方法排序，遍历，去重，深浅拷贝
 在数组中经常会出现“茴字的n种写法”类似的题目。
@@ -415,11 +607,17 @@ console.log(unique2([1, 1, 2, 3, 5, 3, 1, 5, 6, 7, 4]));
 
 ### 3. 闭包
 
-函数A 里面包含了 函数B，而 函数B 里面使用了 函数A 的变量，那么 函数B 被称为闭包。又或者：闭包就是能够读取其他函数内部变量的函数。
+函数A 里面包含了 函数B，而 函数B 里面使用了 函数A 的变量，那么 函数B 被称为闭包。
 
-使用闭包主要是为了设计私有的方法和变量。闭包的优点是可以避免全局变量的污染，缺点是闭包会常驻内存，会增大内存使用量，使用不当很容易造成内存泄露。在js中，函数即闭包，只有函数才会产生作用域的概念。
+又或者：闭包就是能够读取其他函数内部变量的函数。
 
-闭包 的最大用处有两个，一个是可以读取函数内部的变量，另一个就是让这些变量始终保持在内存中闭包的另一个用处，是封装对象的私有属性和私有方法。
+
+
+闭包的优点是可以避免全局变量的污染，缺点是闭包会常驻内存，会增大内存使用量，使用不当很容易造成内存泄露。
+
+在js中，函数即闭包，只有函数才会产生作用域的概念。ES6中新增块级作用域。
+
+使用闭包主要是为了封装对象的私有属性和私有方法。
 
 ### 4. JS作用域及作用域链
 [04 | 读JavaScript 高程](https://www.jianshu.com/p/b6f6c6bc6c7b)
@@ -427,9 +625,12 @@ console.log(unique2([1, 1, 2, 3, 5, 3, 1, 5, 6, 7, 4]));
 
 ### 5. 原型和原型链
 
-new 操作符做了什么
+new 操作符做了什么？
+
 这里有cat和animal子类和父类，如何进行es5继承，至少说出5种。
+
 [06-1 | 读JavaScript 高程](https://www.jianshu.com/p/6bfd709aa441)
+
 原型链能够实现所谓的继承的本质原因是什么？
 
 
@@ -497,10 +698,17 @@ async / await 是 generator 的语法糖，是基于 Promise 的。有了async �
 
 ### 9. 事件相关，事件循环event loop，事件队列，事件委托
 
-### 10. 算法
+### 10. 客户端持久化存储
+请描述一下 cookies，sessionStorage和 localStorage的区别？
+
+主要从作用，大小，存储位置，何时销毁回答。
+
+### 11. 算法
 用js实现千位分隔符
 
 ## ES6新特性，ES2020新特性
+主要参考书籍《深入理解ES6》
+
 ### 1. ES2020
 [ES2020](https://www.jianshu.com/p/d6586d4c33f9)
 
@@ -579,6 +787,7 @@ ViewModel(视图模型):就是View和Model层的粘合剂，封装业务逻辑�
 
 ### 2. 生命周期
 
+#### 2.1 生命周期的理解：
 Vue 实例从创建到销毁的过程，就是生命周期。
 
 也就是从开始创建、初始化数据、编译模板、挂载Dom→渲染、更新→渲染、卸载等一系列过程，我们称这是 Vue 的生命周期。
@@ -586,15 +795,22 @@ Vue 实例从创建到销毁的过程，就是生命周期。
 它可以总共分为8个阶段：创建前/后, 载入前/后,更新前/后,销毁前/销毁后。
 
 
+#### 2.2 特定的时间做特定的事情：
+
 第一次页面加载时会触发 beforeCreate, created, beforeMount, mounted 这几个钩子。
 
 DOM 渲染在 mounted 中就已经完成了。
 
 beforecreate : 可以在这加个loading事件，在加载实例时触发。
+
 created : 初始化完成时的事件写在这里，如在这结束loading事件，异步请求也适宜在这里调用。
+
 mounted : 挂载元素，获取到DOM节点。
+
 updated : 如果对数据统一处理，在这里写上相应函数。
+
 beforeDestroy : 可以做一个确认停止事件的确认框。
+
 nextTick : 更新数据后立即操作dom better-scroll。
 
 ### 3. 简述 Vue 的响应式原理
@@ -615,7 +831,22 @@ key
 1.props和$emit
 2.vuex(官方推荐状态管理器)
 
-### 6. new Vue 流程
+### 6. new Vue 发生了什么
+[new Vue](https://ustbhuangyi.github.io/vue-analysis/v2/data-driven/new-vue.html)
+
+### 7. 为什么data推荐函数，而不是对象形式？
+```js
+data = vm._data = typeof data === 'function'
+? getData(data, vm)
+: data || {}
+```
+源码告诉你这里可以是函数也可以对象，推荐函数是为了解决组件实例公用同一个data的问题。
+
+### 8. Vue-Router
+
+### 9. Vuex
+
+### 10. axios
 
 
 ## 网络
@@ -655,18 +886,25 @@ key
 初级而已，不要计较太多
 浏览器渲染机制、重绘、重排
 
+
+## 开发工具
+- VScode
+- nodemon
+- Git
+
 ## 闲聊
 
 ### 0. 你是如何学习前端知识的？
+
+
+### 1. 哪个项目让你最满意、代表你的最高水平？如何做的？
+项目能访问
+
 
 项目能访问，这个隐含的东西可多了。如果这个是你自己做的，这说明你起码舍得为技术花钱、会配置服务器、会部署前后端项目、有使用 linux 的经验、愿意证明项目是真的而不是嘴遁。
 
 基础和项目穿插：问到基础可以穿插项目，这样才真实，而不是个只会背答案的复读•莫得感情•机。随便举个例子，比如问到状态码，你说“⋯⋯301 重定向，我之前做的一个项目地址改了，于是在 nginx 里配置的时候就用到了 ⋯⋯ 它和 302 也是有区别的，⋯⋯”。
 
-
-技术探底的问题肯定会问一些，此外面试每个人多会问：
-
-### 1. 哪个项目让你最满意、代表你的最高水平？如何做的？
 
 ### 2. 让你印象最深刻的一个（技术）难点，害的你搞了很久，最后怎么解的，有什么心得？
 
