@@ -69,6 +69,10 @@ const nav = [
         text: 'Vue | 封装一个tabbar组件',
         link: '/vue-package-a-tabbar-component-from-zero/'
       },
+      {
+        text: 'Vue | 如何封装一个toast插件',
+        link: '/vue-toast-plugin/'
+      },
     ]
   },
   {
