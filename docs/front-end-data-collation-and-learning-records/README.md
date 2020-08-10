@@ -8,6 +8,13 @@
 - Deno
 
 ---
+## 工具
+工欲善其事，必先利其器
+- [nodejs](https://nodejs.org/zh-cn/) 模块化
+- [webpack](https://webpack.js.org/) 前端工程化
+- [caniuse](https://caniuse.com/) 看一下浏览器对于标准的实现情况，好决定是否使用某个方法。
+- [Calibre](https://calibre-ebook.com/) 开源电子书管理，支持命令行，满足了我收集电子书的愿望。
+
 
 ## 音频
 - [2019 | 喜马拉雅 | 沙翼 | 冰山工作室 | 陪你读书（JavaScript WEB前端）](https://www.ximalaya.com/jiaoyu/3740790)
@@ -30,11 +37,12 @@
 ## 书籍 
 
 - [《软件开发者路线图--从学徒到高手》](https://weread.qq.com/web/reader/9b9320c0597ce69b9770aa4) 操作手册，方法论
-- 《JavaScript高级程序设计》第三版，2012年出版，现在更像一个手册。推荐英文第四版
+- 《JavaScript高级程序设计》第三版，2012年出版，现在更像一个手册。推荐英文第四版，做的[读书笔记](../the-note-of-professional-javascript-for-web-developers)
+- [《你不知道的JavaScript》](https://github.com/getify/You-Dont-Know-JS) 进阶必备，强推强推，在看
 - [《网络是怎样连接的》](https://weread.qq.com/web/reader/6f932ec05dd9eb6f96f14b9)这一切都是如何发生的，经典的题目：从输入网址到看到页面，这其中发生了什么，看似一个面试题，涉及的知识面完全可以成为一本书
 - [《图解HTTP》](https://weread.qq.com/web/reader/3da32b505dd9f43da9a1aca) 网络相关
 - 《WebKit技术内幕》浏览器内核，偏向底层的东西，一个经典的题目：谈一下你了解的浏览器内核
-- [你不知道的JavaScript](https://github.com/getify/You-Dont-Know-JS) 进阶必备，强推强推，在看
+
 - 《JavaScript语言精粹》，2012年出版
 
 前端娱乐圈，发展快，推荐在线书籍，更新及时。
@@ -54,12 +62,6 @@
 - [V8源码 | 算法实现 | 如数组高阶函数 sort 的底层实现在源码的710行](https://github.com/v8/v8/blob/ad82a40509c5b5b4680d4299c8f08d6c6d31af3c/src/js/array.js)
 
 
-## 工具
-工欲善其事，必先利其器
-- [nodejs](https://nodejs.org/zh-cn/) 模块化
-- [webpack](https://webpack.js.org/) 前端工程化
-- [caniuse](https://caniuse.com/) 看一下浏览器对于标准的实现情况，好决定是否使用某个方法。
-- [Calibre](https://calibre-ebook.com/) 开源电子书管理，支持命令行，满足了我收集电子书的愿望。
 
 ---
 
@@ -75,8 +77,3 @@
 其次看出版时间！！！前端发展太快，一些技术正在被抛弃，比如 flash，早年的一些技术书价值已经不是很大了。
 
 贵的就是好的，在技术书这里是不成立的。
-
-具体可查看开源书籍，对于文档开源，可看电影《互联网之子》。
-
-给自己列一个读书 flag。
-

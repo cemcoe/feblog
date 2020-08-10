@@ -4,9 +4,15 @@ const nav = [
     ariaLabel: 'Language Menu',
     items: [
       { text: '前端资料整理及学习记录', link: '/front-end-data-collation-and-learning-records/' },
-      { text: '前端探险路线图', link: '/front-end-adventure-roadmap/' },
+      // { text: '前端面试题', link: '/front-end-interview/' },
+    ]
+  },
+  {
+    text: 'JS',
+    ariaLabel: 'Language Menu',
+    items: [
       { text: '读JavaScript高级程序设计', link: '/the-note-of-professional-javascript-for-web-developers/' },
-      // { text: '前端面试题', link: '/front-end-interview/' }
+      { text: 'JS | 几道简单的数学题', link: '/a-few-simple-arithmetic-problems/' },
     ]
   },
   {
@@ -17,12 +23,6 @@ const nav = [
       { text: 'CSS效果 | 三栏布局那些事', link: '/css-three-column-layout/' },
       { text: 'CSS效果 | Tab选项卡', link: '/css-tab-bar/' },
       { text: 'CSS效果 | 轮播图', link: '/css-swiper-picture/' }
-    ]
-  }, {
-    text: 'JS',
-    ariaLabel: 'Language Menu',
-    items: [
-      { text: 'JS | 几道简单的数学题', link: '/a-few-simple-arithmetic-problems/' },
     ]
   },
   {
@@ -56,11 +56,11 @@ const nav = [
       {
         text: 'Vue | 组件化基本操作',
         link: '/vue-com-base-operation/'
-      }, 
+      },
       {
         text: 'Vue | 组件通信',
         link: '/vue-com-communication/'
-      },      
+      },
       {
         text: 'Vue | 组件个性化',
         link: '/vue-com-personal/'
@@ -78,7 +78,7 @@ const nav = [
       {
         text: '网络请求那些事情',
         link: '/those-things-of-the-network-requests/'
-      }, 
+      },
       {
         text: '如何模拟后端数据',
         link: '/network-mock-data/'
@@ -108,7 +108,7 @@ const nav = [
       {
         text: 'Koa初体验',
         link: '/node-koa-start-learn/'
-      },{
+      }, {
         text: '如何搞一个专属的 Hexo 的主题',
         link: '/node-hexo-template-cemcoe/'
       }
@@ -140,7 +140,7 @@ module.exports = {
     // ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
   ],
   plugins: ['@vuepress/pwa', {
-      serviceWorker: true,
-      updatePopup: true
+    serviceWorker: true,
+    updatePopup: true
   }],
 }
