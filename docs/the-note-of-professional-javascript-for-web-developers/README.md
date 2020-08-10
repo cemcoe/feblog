@@ -72,8 +72,6 @@ JavaScript拢共也就就三部分，现在其中的两个都因部分原因不�
 
 所以，重点应该放在对 ECMAScript 的使用上，这是重点重点重点。
 
-第一章更新于626。
-
 ---
 
 ## 第二章 在 HTML中使用 JavaScript
@@ -93,15 +91,15 @@ async charset crossorigin defer intergrity language src type src type
 然而并没什么，废话了这么多，实际上使用最多的就是一个 `src` 属性。
 
 ### 2. 运行流程预编译
-在第三版 11 页中有那么一句话。
+在 p11 中有那么一句话。
 
 > 包含在 script 元素内部的 JavaScript 代码将被从上至下依次解释。
 
 解释？何为解释？ 
 
-对于 JavaScript，预处理 + 执行 = 解释，这里展开会有很多内容，涉及变量提升，作用域等高阶知识，有空单独写。
+对于 JavaScript，预编译 + 执行 = 解释，这里展开会有很多内容，涉及变量提升，作用域等高阶知识，有空单独写。
 
-请看[第二章番外何为解释？](#第二章番外何为解释？)
+请看第二章番外何为解释？
 
 
 ### 3. 标签放哪里 
@@ -110,6 +108,30 @@ js代码会阻断代码运行，通常会将 script 放到文档底部。
 那么有没有情况一定要放到前面？ 
 
 你别说，还真有，比如 Vue，[demo](https://github.com/vuejs/vuejs.org/blob/master/src/v2/examples/vue-20-hello-world/index.html)，在这里，例子里 script 放到了 head 里面，这是因为后面要用到，如果将 script 放到文档的底部，那么在该 js 文件未加载前是无法使用 Vue 的。
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My first Vue app</title>
+  <script src="https://unpkg.com/vue"></script>
+  <!-- js放到head中 -->
+</head>
+<body>
+  <div id="app">
+    {{ message }}
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue!'
+      }
+    })
+  </script>
+</body>
+</html>
+```
 
 ---
 
@@ -126,8 +148,8 @@ js代码会阻断代码运行，通常会将 script 放到文档底部。
 本来打算有空就写的，结果苟了几天，没有写了，感觉自己废了。
 
 主要是这个`解释`，难以解释。
-
-> 黄四郎：好啊！三天之后，一定给县长一个惊喜！
+```md
+黄四郎：好啊！三天之后，一定给县长一个惊喜！
 张麻子：汤师爷，他是胡万的恩人，现在又成了你的恩人！你给翻译翻译，什么叫惊喜？翻译翻译，什么叫惊喜？
 汤师爷：这还用翻译？都说了…
 张麻子：我让你翻译给我听，什么叫惊喜！
@@ -142,14 +164,16 @@ js代码会阻断代码运行，通常会将 script 放到文档底部。
 汤师爷：惊喜就是三天之后，给你一百八十万两银子，出城剿匪，接上他的腿！
 张麻子：大哥这个是惊喜啊！小弟我愿意等你三天。（拉过汤师爷来）黄老爷，汤师爷是我的至爱，你可不能夺我所爱啊！
 黄四郎：了然，了然！
+```
+
 
 心态炸了，有没有？
 
 
 ### 2. 这玩意怎么解释
-解释 = 预处理 + 执行，解释这个东西要怎么解释？
+解释 = 预编译 + 执行，解释这个东西要怎么解释？
 
-书上没有呀，这时可以拿起另一本书 [你不知道的JavaScript（上卷）](https://book.douban.com/subject/26351021/) 来看一看。
+书上没有呀，这时可以拿起另一本书 [《你不知道的JavaScript（上卷）》](https://book.douban.com/subject/26351021/) 来看一看。
 
 
 
@@ -197,7 +221,7 @@ console.log('c', c)
  * Uncaught ReferenceError: Cannot access 'a' before initialization at index.js:1
 */
 ```
-直接报错，这是因为 ES6 中的 const 和 let 会形成暂时性死区，这就是另外一个故事了。
+直接报错，这是因为 ES6 中的 const 和 let 会形成暂时性死区(TDZ)，这就是另外一个故事了。
 
 回到 var 上面来，令人迷惑的是下面的代码片段：
 ```js
@@ -343,7 +367,7 @@ AO {
   d: function d() {}
 }
 ```
-拿着我们的 AO 去和函数对线，打印顺序是122.
+拿着我们的 AO 去和函数对线，打印顺序是122。
 
 我们来提炼一下，在预处理时，赋值函数体在形参和实参统一的后边，变量的赋值是在函数执行时发生的。
 
@@ -407,7 +431,6 @@ AO {
 
 简单。，，这就是解释还没完，有空再写。
 
-本章更新于626。
 
 ---
 ## 第三章 基本概念
@@ -444,7 +467,7 @@ ES2020 来了之后添加了另一个新成员：BigInt
 
 Symbol 在 js 中代表独一无二的值，目前能想到的应用场景是，利用 Symbol 值作为属性名可以很好的避免复杂对象中含有多个属性的时容易将某个属性名覆盖掉的情况。
 
-BingInt其实也算是[老朋友](https://www.jianshu.com/p/d8b8ed62384f)了。
+BingInt其实也算是[老朋友](../a-few-simple-arithmetic-problems/)了。
 
 好的，我们现在已经知道了 ESMAScript 中有Null Undefined Boolean Number String Object Symbol BigInt 8 种数据类型，接下来的问题是当我们拿到一个数据，比如通过 ajax 向后端请求到数据后，如何检测该数据的数据类型？
 
@@ -456,14 +479,14 @@ BingInt其实也算是[老朋友](https://www.jianshu.com/p/d8b8ed62384f)了。
 
 这里对数据进行检测是因为每种数据类型有不同的特性或者说是结构，有不同的处理方案。
 
-在搞事情前的第一步要搞清楚这个数据是个啥玩意儿？化学种可以使用各种试剂比如银氨溶液等来检测。
+在搞事情前的第一步要搞清楚这个数据是个啥玩意儿？化学中可以使用各种试剂比如银氨溶液等来检测。
 
 而在这里对于数据类型的检测可以使用几个方案。
 
 
 typeof instnceof 
 每种检测方法各有优缺点，下面依次测试。
-首先的typeof ，需要注意两点，typeof 是操作符，使用时可以不加括号，其次使用typeof检测的结果本身的数据结构是字符串，即
+首先的typeof ，需要注意两点，typeof 是操作符，使用时可以不加括号，其次使用 typeof 检测的结果本身的数据结构是字符串，即
 ```js
 typeof (typeof 管你是你哈) ===  'string'
 ```
@@ -478,7 +501,7 @@ typeof (typeof 管你是你哈) ===  'string'
 在MDN上找到的解释是：
 > 在 JavaScript 最初的实现中，JavaScript 中的值是由一个表示类型的标签和实际数据值表示的。对象的类型标签是 0。由于 null 代表的是空指针（大多数平台下值为 0x00），因此，null 的类型标签是 0，typeof null 也因此返回 "object"。
 
-[https://2ality.com/2013/10/typeof-null.html](https://2ality.com/2013/10/typeof-null.html)
+[The history of “typeof null”](https://2ality.com/2013/10/typeof-null.html)
 
 综上，如果你要判断变量是 Undefined Boolean 等简单数据类型，那么 typeof 可以使用，但如果你要检测一个变量是否为对象，或者具体的对象类型，那么，typeof 可能无能为力。
 
@@ -491,7 +514,7 @@ typeof (typeof 管你是你哈) ===  'string'
 
 这里的转换方式分为两种，分别是隐式类型转换和显式类型转换。
 
-但总结。。。
+有空总结。
 
 ### 4. ES2020 新增操作符
 ```md
@@ -525,11 +548,9 @@ for (let i = 0; i < arr.length; i++){}
 
 可以使用 for of。
 
-本章更新于626
-
 ---
 
-## 第四章
+## 第四章 变量，作用域和内存问题
 > 这是第四章基本概念，这一章涉及变量、作用域和内存问题等相关内容。
 主要知识点：
 - 1. 值类型和引用类型的区别是什么？
@@ -539,11 +560,11 @@ for (let i = 0; i < arr.length; i++){}
 ---
 ### 1. 值类型和引用类型的区别是什么？
 
-第三章讲到ESMAScript2020中有8种数据结构，其实还有一种分法两种就足够了。
+第三章讲到 ESMAScript2020 中有 8 种数据结构，其实还有一种分法两种就足够了。
 
 这种分类的依据是操作时是自身还是数据的代理人，分为值类型和引用类型。
 
-在 [02-1 | 读JavaScript 高程 | 解释](https://www.jianshu.com/p/7abebcc75978) 中提到，JavaScript 的解释分为预编译和执行，而在执行的变量赋值阶段解析器需要判断变量是值类型还是引用类型。
+在 第二章番外 何为解释？ 中提到，JavaScript 的解释分为预编译和执行，而在执行的变量赋值阶段解析器需要判断变量是值类型还是引用类型。
 
 为什么要多一道判断呢？
 
@@ -568,13 +589,13 @@ for (let i = 0; i < arr.length; i++){}
 
 ---
 
-## 第5章
+## 第五章 引用类型
 > 这是第五章引用类型，这一章涉及引用类型的种类，各个类型身上的方法等相关内容。
 
 主要知识点：
 - 1.引用类型和类和对象间是怎样的一种关系？
 - 2.ECMAScript 预设了哪些原生的数据类型？
-- 3.作为值类型的string为什么可以调用方法？
+- 3.作为值类型的 string 为什么可以调用方法？
 - 4.包装类是个什么东西？
 
 ### 1.引用类型和类和对象间是怎样的一种关系？
@@ -585,7 +606,7 @@ ECMAScript 中的引用类型是一种数据结构，可以将数据和功能结
 - toString() 当需要输出字符串时会隐式调用该方法
 - valueOf()
 
-### 2.ECMAScript 预设了哪些原生的数据类型？
+### 2.ECMAScript 预设了哪些原生的引用数据类型？
 记得吗？H5 中对一些标签做了初始化 CSS 设置，用起来方便不少，你想用一种标签来写整个网页理论上也是可以的，不过是麻烦了一些。
 
 同样的，为了方便大家的操作，ESMAScript 定义了一些常用的原生引用类型，我们可以用这些东西方便快捷地创造我们想要的对象。
@@ -601,7 +622,12 @@ ECMAScript 中的引用类型是一种数据结构，可以将数据和功能结
 Object 是一个比较单纯的引用类型，功能不多，但因其单纯，但我们想要造一个自己的对象时，用 Object 最好不过了。
 
 ### 2.2 Array
-Array 时 ECMAScript 中非常重要的数据类型，问题涉及如何检测数据，常用方法，各种算法，ES6 扩展等。当数组调用 toString() 方法时，会返回由数组中的额每个值的字符串形式拼接成的以逗号分隔的字符串。效果与 arr.join(',') 相同。
+Array 是 ECMAScript 中非常重要的数据类型，问题涉及如何检测数据，常用方法，各种算法，ES6 扩展等。
+
+
+当数组调用 toString() 方法时，会返回由数组中的额每个值的字符串形式拼接成的以逗号分隔的字符串。效果与 arr.join(',') 相同。
+
+
 数组中的方法可以分为以下几种：
 - 转换方法 toLocaleString() toString() valueOf()
 - 栈方法 push() pop()
@@ -616,13 +642,16 @@ Array 时 ECMAScript 中非常重要的数据类型，问题涉及如何检测�
 ### 2.3 Date
 Date 这个类型也是蛮有意思的，还记得 [0.1+0.2](https://www.jianshu.com/p/d8b8ed62384f) 的问题吗？这里也有一个不符合我们预期的问题。
 
-ECMAScript 中的 Date 抄的 Java.util.Date ，但这里是有不当的地方的，但就硬抄了过来。比如 getMonth() ，按照语义化来讲，应该返回月份，但你试了以后会发现返回的是 月份-1 ，你要说它就是规定从 0 开始吧，但 getDate() 返回的则就是实在的 日期，没有 -1，这就让人很困惑，就这两个方法举例。至于其它的方法，现用现查就好。这个故事告诉我们，抄作业看着点，别硬着头皮抄，但这些不合理的地方用的人多了也就不好改了。错别字慢慢变成通假字。
+ECMAScript 中的 Date 抄的 Java.util.Date ，但这里是有不当的地方的，但就硬抄了过来。比如 getMonth() ，按照语义化来讲，应该返回月份，但你试了以后会发现返回的是 月份-1 ，你要说它就是规定从 0 开始吧，但 getDate() 返回的则就是实在的 日期，没有 -1，这就让人很困惑，就这两个方法举例。
+
+
+至于其它的方法，现用现查就好。这个故事告诉我们，抄作业看着点，别硬着头皮抄，但这些不合理的地方用的人多了也就不好改了。错别字慢慢变成通假字。
 
 ### 3.4 RegExp
 这是一个功能强大的类型，现在还不是很会，略过。什么时候想玩爬虫，再好好学一学。
 
 ### 3.5 Function
-函数是一等公民，还满特殊的，使用typeof检测时，其他引用类型得到 "object"，函数得到 "function"，搞特殊。
+函数是一等公民，还满特殊的，使用 typeof 检测时，其他引用类型得到 "object"，函数得到 "function"，搞特殊。
 
 定义函数有两种方式：函数声明和函数表达式，这两种方式会在 [预编译](https://www.jianshu.com/p/7abebcc75978) 时体现出不同。
 
@@ -633,15 +662,15 @@ ECMAScript 中的 Date 抄的 Java.util.Date ，但这里是有不当的地方�
 - Number
 - String
 
-string可以有方法吗？按理来讲，值类型是没有方法可以调用的，但你尝试以下就会发现，是可以的，比如 str.substring(2)。
+string 可以有方法吗？按理来讲，值类型是没有方法可以调用的，但你尝试以下就会发现，是可以的，比如 str.substring(2)。
 
 真神奇。那么 ECMAScript 帮我们做了什么呢？
 
-它帮我们创建了基本包装类的一个实例，并在在实例上调用方法，随后销毁了该实例。
+它帮我们创建了基本包装类的一个实例，并在在实例上调用方法，随后销毁了该实例，术语叫做装箱，拆箱操作。
 
 ---
 
-## 第六章
+## 第六章 面向对象的程序设计
 > 这是第六章面向对象的程序设计，这一章涉及到一些概念和思想，也是 JavaScript 中很重要的知识点。需要注意的是在第四版中，这部分内容在第八章，在第四版中增加的内容是 Collection Reference Types 和 Iterators and Generatiors。这里还是以第三版为参考。
 
 
@@ -771,56 +800,65 @@ const person3 = new Person("cemcoe222", 18)
 
 person person1 person2 分别保存 Person 的一个不同的实例。这些对象都有一个 constructor 属性，该属性指向 Person，这里就解决了工厂模式无法确定对象类型的问题。
 
-当然，如何要检测对象类型时使用 instanceof 靠谱一些。
+当然，如果要检测对象类型时使用 instanceof 靠谱一些。
 person instanceof Person 意思是 person 是 Person 的 instance 吗？
 
 构造函数和普通函数的区别是两种的调用方式不同。
 
-那么构造函数有什么问题内？
+那么使用构造函数创建对象有什么问题？
 
-问题在于如果在构造函数中为对象的方法时，每次new一个实例方法也会创建方法实例。
+问题在于如果在构造函数中为对象的方法时，每次 new 一个实例方法也会创建方法实例。
 
 ----
-这时就轮到原型出场了。
+
 构造函数的问题是，对象中的方法没有办法复用。
-下篇接着看。。。
-接上篇
+
+这时就轮到原型出场了。
 
 
 ## 第六章番外
 知识点：
+
 1.构造函数原型实例三者是怎样的一个关系？
+
+
 2.如何确定一个属性是在对象本身还是在原型身上？
+
+
 3.原型方法创建对象的缺点？
+
+
 4.较为合理的创建对象的方案是原型加构造函数？
+
+
 5.ES6中的class是怎么一回事?
 
 ### 1.构造函数原型实例三者是怎样的一个关系？
-![](https://upload-images.jianshu.io/upload_images/3750332-35ade50f6aecd13d.jpg)
+![](./imgs/6_1.jpg)
 
 每个函数都有一个属性叫做 prototype 指向该函数的原型对象，而该原型对象也有一个属性叫做 constructor 指回了函数，两者形成了一个圈。
 
-![](https://upload-images.jianshu.io/upload_images/3750332-50b61d724776bca7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](./imgs/6_2.jpg)
 
 
 在采用原型创造对象时涉及三个东西，构造函数，原型对象，实例即要创建的对象。问题的关键是搞明白这三者的关系。
 
-前面是函数和原型对象的关系，函数通过ptototype 指向原型对象，原型对象通过constructor指向函数，这就是两者的关系。
+前面是函数和原型对象的关系，函数通过 ptototype 指向原型对象，原型对象通过 constructor 指向函数，这就是两者的关系。
 
 下面我们将实例添加进来。
 
-首先是构造函数和实例的关系，实例通过构造函数创建，实例有一个属性[[prototype]] 指向构造函数的原型对象，但实例和构造函数间并无此项直接的联系。
+首先是构造函数和实例的关系，实例通过构造函数创建，实例有一个属性 `[[prototype]]` 指向构造函数的原型对象，但实例和构造函数间并无此项直接的联系。
 
-![](https://upload-images.jianshu.io/upload_images/3750332-b54d601a9dd4034f.jpg)
+![](./imgs/6_3.jpg)
 
 三者的关系是这样的：彼此间通过指针连接，函数和原型是互相指的关系，实例和原型是单向指向的关系，函数和实例间没有直接的指向关系。
 
 ### 2.如何确定一个属性是在对象本身还是在原型身上？
-先来看两个 API，hasOwnPrototype() 方法 和 in 操作符。
+先来看两个 API，`hasOwnPrototype()` 方法 和 `in` 操作符。
 
 hasOwnPrototype() 方法只在属性存在实例本身时返回 true，当属性只存在在原型上时返回false。而 in 操作符，不管属性定义在哪里，只要有就返回 true。两者配合就可以确定属性定义的位置。
 
-比如 in 操作符为 false 时，属性在原型和实例本身都不存在，这是就不需要 hasOwnPrototype() 出马了。而当 in 操作符为 true 且 hasOwnPrototype() 方法为 false  时，该属性存在于原型中。
+比如 in 操作符为 false 时，属性在原型和实例本身都不存在，这时就不需要 hasOwnPrototype() 出马了。而当 in 操作符为 true 且 hasOwnPrototype() 方法为 false  时，该属性存在于原型中。
 
 ### 3.原型方法创建对象的缺点？
 对于属性中的引用类型一处更改全部都会变动，每处都会受到影响。
@@ -879,7 +917,7 @@ const p1 = new Person('cemcoe', 18)
 ```
 可以看到 ES6 的 class 用起来代码结构更加的清晰，对函数的定义被大括号包裹着，不会显得很乱。
 
-对创建对象方法的探索暂时告一段落，推荐使用 ES6 中的 class 来组织代码，下篇来看继承。
+对创建对象方法的探索暂时告一段落，推荐使用 ES6 中的 class 来组织代码，下面来看继承。
 
 ---
 
@@ -888,10 +926,20 @@ const p1 = new Person('cemcoe', 18)
 > 经过一番的折腾，我们已经能够像女娲一样造人了，现在要做的就是如何让我们造出来的人能够进化，站在巨人的肩膀上不断地发展，术语叫做继承。
 
 知识点：
+
+
 1.什么是原型链？如何使用原型链实现继承？
+
+
 2.如何确定实例和原型的关系？
+
+
 3.使用原型链实现继承有什么缺点？
+
+
 4.实现继承的可选方案有哪些？
+
+
 5.ES6如何实现继承？
 
 继承的思路是使用原型让一个引用类型继承另一个引用类型的属性和方法。
@@ -899,11 +947,11 @@ const p1 = new Person('cemcoe', 18)
 ### 1.什么是原型链？如何使用原型链实现继承？
 前面提到过构造函数，原型和实例三者之间的关系。
 
-![](https://upload-images.jianshu.io/upload_images/3750332-47c06a6d20746ff4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](./imgs/6_3.jpg)
 
 现在假设原型等于另一个类型的实例，那么此时原型和实例的结合体会指向另一个原型，如果再假设此原型是另一组原型和实例的结合，那么该原型会指向另一个原型，这就是原型链。文字有点绕，画个图。
 
-![](https://upload-images.jianshu.io/upload_images/3750332-feadf246534924b5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](./imgs/6_4.jpg)
 
 站在 A 实例的角度来看，有这么一个指向关系，A实例->A原型=B实例->B原型=C实例->C原型，这就是原型链的名字的意义。
 
@@ -998,7 +1046,7 @@ class cemcoe extend Person {
 ## 第七章 函数表达式
 > 这是第七章函数表达式，这一章涉及函数预编译，闭包，作用域链内容。函数涉及内容繁多。
 
-![](https://upload-images.jianshu.io/upload_images/3750332-847024b7c04a706f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](./imgs/7function.png)
 
 
 前情提要 [02-1 | 读JavaScript 高程 | 解释](https://www.jianshu.com/p/7abebcc75978)，这章的重点其实在函数预编译时发生事情。
@@ -1019,7 +1067,7 @@ class cemcoe extend Person {
 - 箭头函数
 - 函数生成器
 
-这里的点在于ES6中新增的箭头函数和ES7新增的函数生成器。
+这里的点在于 ES6 中新增的箭头函数和 ES7 新增的函数生成器。
 
 ### 2.函数有什么方法？
 函数是对象，它有 name 和 length 方法。
@@ -1182,8 +1230,6 @@ var a = 2020
 ## 第七章 番外
 > 这是第七章函数表达式，这一章涉及函数预编译，闭包，作用域链内容。函数涉及内容繁多。今天来看作用域链。
 
-在 [06-2 | 读JavaScript 高程](https://www.jianshu.com/p/1adeff1f8ca9) 中讲了原型链。
-
 今天来看一看作用域链。
 
 那么什么是作用域？
@@ -1198,10 +1244,8 @@ var a = 2020
 
 作用域链：[[scope]] 中存储的执行期上下文对象的集合，这个集合就是链式链接，我们把这种链式链接称为作用域链。
 
-![](https://upload-images.jianshu.io/upload_images/3750332-05e2fb4c381b8b50.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-
-![三个概念的关系](https://upload-images.jianshu.io/upload_images/3750332-af0f001c052cbd37.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![三个概念的关系](./imgs/7scope.png)
 
 
 原型链的链接处是原型和另一个实例，那么作用域链的链接处是什么？
@@ -1220,7 +1264,7 @@ function a() {
 var glob = 100
 a()
 ```
-有了 [07 | 读JavaScript 高程](https://www.jianshu.com/p/094492e6d86b) 预编译的知识，来看上面的代码。
+有了预编译的知识，来看上面的代码。
 
 产生的GO如下：
 ```md
@@ -1233,45 +1277,54 @@ GO: {
 }
 ```
 前面说到作用域中存储作用域链。
-![](https://upload-images.jianshu.io/upload_images/3750332-3d99da209acb7c5f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](./imgs/7afunction_define.png)
 
 
 
 a函数执行产生AO，AO挂到哪里？挂到作用域链的最顶端。
 
-![](https://upload-images.jianshu.io/upload_images/3750332-2bbccd9ef5fb7db7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](./imgs/7a_function_run.png)
 
 当在a函数中访问变量时就是按照作用域链查找。
 
 a函数的执行触发了b函数的定义。
-![](https://upload-images.jianshu.io/upload_images/3750332-8804a47470983e96.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](./imgs/7a_function_run_b_function_define.png)
 
 b函数执行会创建自己的AO。
-![](https://upload-images.jianshu.io/upload_images/3750332-82549d7a04605d54.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](./imgs/7b_function_run.png)
 
 这里有一个点，就是b函数定义时用到原型链和a函数用到的原型链是不是同一个，b用的是从a借来的还是自己copy一份？
 
-![](https://upload-images.jianshu.io/upload_images/3750332-e47fe647b254e666.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](./imgs/7aaobao.png)
 
 两者是共用的AO。
 
-![总览](https://upload-images.jianshu.io/upload_images/3750332-788cf6457989e49d.gif?imageMogr2/auto-orient/strip)
+![总览](./imgs/7done.gif)
 
 这也就是函数里面可以访问外部变量，而在函数外无法访问函数内部变量的原因。
 
 
-## 第八章
-> 这一篇呢是第8章，主要涉及 BOM 的相关知识。
+## 第八章 BOM
+> 这一篇呢是第八章，主要涉及 BOM 的相关知识。
 
 先来看BOM，即和浏览器相关地一些东西。
 
 知识点：
+
+
 1.BOM 中常用的 API 对象有哪些？这些对象都是用来干什么的?
+
+
 2.窗口的尺寸问题？
+
+
 3.history 对象？vue router
 
 
-## 1.BOM 中常用的 API 对象有哪些？这些对象都是用来干什么的?
+### 1. BOM 中常用的 API 对象有哪些？这些对象都是用来干什么的?
+
+
+
 主要有这么些个对象：window location navigator screen history
 
 先来看 window 对象，作为对象应该具有属性和方法，然而现实是，为了安全很多方法被浏览器禁用了，现在主要获取一些信息，即获取属性。
@@ -1295,7 +1348,7 @@ window 中有哪些我可能会用到的属性呢？
 innerWidth、innerHeight 返回相同的值，即视口（viewport）大小而非浏览器窗口大小。
 
 但你试试就会发现，这四个值没有一样的。
-![时代的车轮](https://upload-images.jianshu.io/upload_images/3750332-9908c53945ebf7df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![时代的车轮](./imgs/8_1.png)
 
 时代的车轮滚滚向前。
 
@@ -1307,7 +1360,7 @@ document.documentElement.clientWidth, document.documentElement.clientHeight
 ```
 
 和上面的放在一起看一下：
-![尺寸](https://upload-images.jianshu.io/upload_images/3750332-cd6b14bef3c53a54.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![尺寸](./imgs/8_size.png)
 
 这6个尺寸都代表什么？这些 API 用起来真难受，这里有篇 2009 年关于各种尺寸的文章。 [JS获取浏览器窗口大小 获取屏幕，浏览器，网页高度宽度](https://www.cnblogs.com/top5/archive/2009/05/07/1452135.html)，这个东西用到时再查。
 
@@ -1318,7 +1371,7 @@ document.documentElement.clientWidth, document.documentElement.clientHeight
 好嘞，到目前为止，书中提到的方法均被浏览器禁止了，下面来试试打开窗口。
 
 
-![window.open](https://upload-images.jianshu.io/upload_images/3750332-25bf5571a3b88887.gif?imageMogr2/auto-orient/strip)
+![window.open](./imgs/8_open.gif)
 
 这个东西有什么应用场景呢？在用户登录时有的网站会 open 一个新窗口，在用户输入密钥后网站会将该输入用户信息的窗口直接关闭。无需用户的确认。
 
@@ -1328,7 +1381,7 @@ document.documentElement.clientWidth, document.documentElement.clientHeight
 
 ---
 下面来看第二个对象 location，该对象存储当前窗口中加载文档的信息。
-![location](https://upload-images.jianshu.io/upload_images/3750332-79e8d8367451caeb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![location](./imgs/8_location.png)
 
 这里由和window.open()类似功能的代码。
 ```js
@@ -1363,19 +1416,14 @@ location.href = 'https://cemcoe.com'
 
 ### 1. 什么是DOM?
 DOM 的全称是 Document Object Model，中文名叫文档对象模型。
-![来自维基百科](https://upload-images.jianshu.io/upload_images/3750332-0b9f9669f00c6275.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 和原型链作用域链有那么些相似。
 
 这种类型或者说是关系是很常见的，比如历史上的中央集权制度。
-![中央集权制度](https://upload-images.jianshu.io/upload_images/3750332-dbdfce198f6effb8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 以及现在的公司架构也是类型的结构。
-![公司架构](https://upload-images.jianshu.io/upload_images/3750332-82c03b56d300c481.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-这种关系在数据结构和算法中有个术语叫做树结构，抽象之后长下面的样子。
-![树结构](https://upload-images.jianshu.io/upload_images/3750332-256142f54eebcd8e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-图片来源： [https://www.cnblogs.com/QG-whz/p/5168620.html](https://www.cnblogs.com/QG-whz/p/5168620.html)
+这种关系在数据结构和算法中有个术语叫做树结构。
 
 ### 2. DOM 是用来干什么的？
 讲了这么多，那么 DOM 有何用? 有了 MVVM 框架，现在直接操作 DOM 的地方确实是少了，取而代之的是通过控制数据来改变页面的视图层。所以这里也不多介绍。
@@ -1390,7 +1438,6 @@ DOM 的全称是 Document Object Model，中文名叫文档对象模型。
 
 综上，选取元素可以使用 querySelector() querySelectorAll() matches()，具体用法自行探索。
 
-![matches](https://upload-images.jianshu.io/upload_images/3750332-5a5b20087d3f618d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ## H5
 元素选取相关：
@@ -1428,7 +1475,6 @@ demo.style.backgroundColor = '#f40'
 
 有个叫做ifttt的服务将这种逻辑发挥到了极致。
 
-![ifttt](https://upload-images.jianshu.io/upload_images/3750332-d430698cbfaa9bf6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 核心是如何监控事件，进而引发有哪些事件可以监控的问题？
 
@@ -1440,7 +1486,7 @@ demo.style.backgroundColor = '#f40'
 5.我可不可以自定义事件嘞？
 
 ### 1.我点的是谁？
-![](https://upload-images.jianshu.io/upload_images/3750332-3f05842c341fd7f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](./imgs/13_click.png)
 
 当1被点击时，2和3被点击了吗？这里的规定是是的，甚至整个页面都被点击了，这其实有点地图炮的意味，某人怎样可以上升到某省怎样，再上升到全人类怎样。
 
@@ -1470,26 +1516,26 @@ btn.addEventListener('click', function(){}, false)
 ```js
 document.addEventListener('click', e=>console.log(e), false)
 ```
-![event](https://upload-images.jianshu.io/upload_images/3750332-13e53f3e45225f16.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![event](./imgs/13_event.png)
 
-3.有哪些事件可以监听？
+有哪些事件可以监听？
 根据手机壳改变主题。
 
 用的最多的要数click事件，其实可以监听的事件还有很多种。这里列出使用过的。
 
-click 点击事件
-scroll 事件在移动端经常使用
-focus 获得焦点
-blur 失去焦点
+- click 点击事件
+- scroll 事件在移动端经常使用
+- focus 获得焦点
+- blur 失去焦点
 鼠标事件，最近喜欢上了触摸板，就不测试了。
 
 
 移动端事件，300ms延迟。
 触摸事件：
-touchstart
-touchmove
-touchend
-touchcancel
+- touchstart
+- touchmove
+- touchend
+- touchcancel
 
 ### 4.要监听的事件过多，处理不过来，怎么办？
 监听的事件过多，会消耗计算资源，如何节省计算资源呢？事件委托并移除事件处理程序。
@@ -1510,16 +1556,12 @@ touchcancel
 ### 1.JSON的格式规范有哪些？
 在 [Mock | 数据过家家](https://www.jianshu.com/p/9f4af893e9e7) 中其实就用到了JSON这种数据格式。目前，前后端数据传输是使用这种数据格式进行的。
 
-当你打开接口时看到的可能是这样的：
-![很整洁](https://upload-images.jianshu.io/upload_images/3750332-01ca4c4e516cda48.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+当你打开接口很乱时，这时需要一个叫做 JSON Formatter 的插件来帮我们美化一下。
 
-很乱有没有，这时需要一个叫做 JSON Formatter 的插件来帮我们美化一下。
-![这样才对](https://upload-images.jianshu.io/upload_images/3750332-ff2d9cb8dd99e9c5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ### 解析和序列化
 `JSON.parse()` 把 JSON 字符串解析为原生 JavaScript 值
 `JSON.stringify()` 将JavaScript 对象序列化为 JSON 字符串
-![](https://upload-images.jianshu.io/upload_images/3750332-883d14fd5414c906.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 JSON.stringify()可以搞三个参数
 - 要序列化的 JavaScript 对象外
