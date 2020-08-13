@@ -110,6 +110,10 @@ const nav = [
     ariaLabel: 'Language Menu',
     items: [
       {
+        text: '借用node来走一下简单的后端流程',
+        link: '/node-back-end-trip/'
+      },
+      {
         text: 'Koa初体验',
         link: '/node-koa-start-learn/'
       }, {
