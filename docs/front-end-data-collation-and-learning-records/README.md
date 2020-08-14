@@ -1,11 +1,14 @@
 
 待学习：
-- ES2020
-- Vue3.0
 - TypeScript
+- Vue3.0
+- ES2020
 - WebAssembly
 - Web component
 - Deno
+
+## BGM 注入满满活力
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLm1hJGu_QzR2IVyk3Lc_mbT5vxcyUt339" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ---
 ## 工具
@@ -30,8 +33,8 @@
 ## 试炼场
 - [freeCodeCamp](https://www.freecodecamp.org/) 英文版 可以了解到一些前端术语的英语表达，且涉及到算法。
 - [freeCodeCamp](https://www.freecodecamp.one/) 中文版，适合入门，类似于填空题，有项目题，检测结果较慢需要短暂等待。
-- [实验楼](https://www.shiyanlou.com/users/550342/) 基础技能Linux 优点是不用配环境，类似于简答题，更贴近开发环境
-经常搞爬楼活动。目前在用它学 TypeScript。
+- [实验楼 | 蓝桥](https://www.lanqiao.cn/users/550342/) 基础技能 Linux 优点是不用配环境，类似于简答题，更贴近开发环境
+经常搞爬楼活动。目前在用它学 TypeScript，实验楼和蓝桥合到一起了。
 
 
 ## 书籍 

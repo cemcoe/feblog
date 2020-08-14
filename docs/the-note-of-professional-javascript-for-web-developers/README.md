@@ -1433,16 +1433,13 @@ DOM 的全称是 Document Object Model，中文名叫文档对象模型。
 选择使用 
 - querySelector() 
 - querySelectorAll()
+- getElementsByClassName()
+- getElementById()
 
 书中还提到一个方法叫做 `matchesSelector()`，但搜索一下可以发现，这个东西被改成了 `matches()`。所以看这本书时还是要小心一点的，有些东西已经随着时间发生了改变。没什么能躲过时间的摧残。
 
 综上，选取元素可以使用 querySelector() querySelectorAll() matches()，具体用法自行探索。
 
-
-## H5
-元素选取相关：
-- getElementsByClassName()
-- getElementById()
 
 对类的增删改查
 - add
