@@ -13,6 +13,7 @@ const nav = [
     items: [
       { text: '读JavaScript高级程序设计', link: '/the-note-of-professional-javascript-for-web-developers/' },
       { text: 'JS | 几道简单的数学题', link: '/a-few-simple-arithmetic-problems/' },
+      { text: 'TS是啥玩意', link: '/typescript-begin-trip/' },
     ]
   },
   {
@@ -121,7 +122,7 @@ const nav = [
         link: '/node-hexo-template-cemcoe/'
       }
     ]
-  }
+  },
 ]
 
 module.exports = {
