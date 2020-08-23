@@ -3,7 +3,7 @@ const feNav = {
   ariaLabel: 'Language Menu',
   items: [
     { text: '前端资料整理及学习记录', link: '/front-end-data-collation-and-learning-records/' },
-    // { text: '前端面试题', link: '/front-end-interview/' },
+    { text: '前端面试题', link: '/front-end-interview/' },
   ]
 }
 

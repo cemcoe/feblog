@@ -1,14 +1,21 @@
 前段时间企图通过 [以四条链串一串前端的那些事儿](https://www.jianshu.com/p/69c6243fa013)，经过一番尝试后我发现我串不起来。
 
-那就换个思路，用一些题一些书和一些博客来串一串前端那些事儿，以题为引，以书为参考，以博客为补充。
+我太菜了。。。
+
+那就换个思路，用一些题一些书和一些博客来串一串前端那些事儿。
+
+以题为引，以书为源，以博客为令箭来探一探前端的路。
 
 参考的书籍包括但不限于以下几本：
 - 《JavaScript高级程序设计》
 - 《你不知道的JavaSript》
 - 《CSS权威指南》
 - 《深入理解ES6》
+- 《HTTP权威指南》
 
-本文只会提供回答题目的大致的方向，具体的内容请参考相应的书籍，背题没什么意思，若本文中内容与书不同，请相信书上的。
+本文只会提供回答题目的大致的方向，且会提供较为口语化的内容。
+
+严谨的内容请参考相应的书籍，若本文中内容与书不同，不要怀疑，请相信书上的。
 
 文字可能没有什么分量，看一下我前几天到的书吧。虽说只有四本书，但《你不知道的JavaSript》有三册，《CSS权威指南》有两册。
 
@@ -17,7 +24,9 @@
 ![books](./books.png)
 
 
-本文档会随着本人的自我成长而不断完善，可能，大概，也许，今天的理解在未来的某个时间点发生变化。
+本文档会随着本人的自我成长而不断完善。
+
+可能，大概，也许，今天的理解在未来的某个时间点发生变化。
 
 ## 考察的大方向
 
@@ -38,13 +47,15 @@
 
 
 ## HTML
-单独考察 HTML 的题目不是很多，常常配合CSS和JS来考察。
+单独考察 HTML 的题目不是很多，常常配合 CSS 和 JS 来考察。
 
 ### 1. HTML5新特性，语义化？
-子问题，对语义化的理解？HTML5新增的标签。
+子问题，对语义化的理解？HTML5新增的标签？
+
+使用合适的标签书写合适的内容，避免使用过多无意义的标签。说说而已，大多数时候还是 div span 一把梭。
 
 - canvas api 较多且应用场景有限，暂且不管。
-- 对本地离线存储有更好的支持，localStorage长期存储数据，浏览器关闭后数据不丢失；sessionStorage的数据在浏览器关闭后自动删除
+- 对本地离线存储有更好的支持，localStorage 长期存储数据，浏览器关闭后数据不丢失；sessionStorage 的数据在浏览器关闭后自动删除。
 
 
 ### 2. 常用的meta标签
@@ -85,10 +96,14 @@
 <meta name="csrf-token" content="yOdlTYWqpFdlcgvD9X3d8xxxxxxxxxxxy64ZXwH2cFOlsnCo+dlsiLNRYwknNeblVOPK5MQmZhyxwrDg==" />
 ```
 
+这里的重点是 meta viewport，是针对移动端优化用的，涉及内容多，有空写。
+
 
 ## CSS
 
-这部分的参考资料主要是 《CSS权威指南第四版》，会给出页码。知识点包括盒模型，选择器，居中方案，浮动，flex，grid。
+这部分的参考资料主要是 《CSS权威指南第四版》，会给出页码。
+
+知识点包括盒模型，选择器，居中方案，浮动，flex，grid。
 
 其他的东西用到了查文档就好了，不必强行记忆。
 
@@ -96,9 +111,9 @@
 ### 0. 待学习的知识点
 - 视差滚动（Parallax Scrolling）
 
-### 0. [盒模型P316](https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/The_box_model)
+### 1. [盒模型P316](https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/The_box_model)
 
-#### 两种盒模型
+#### 1.1 两种盒模型
 
 盒模型应该是一个在 CSS 中比较基础的概念点，很多问题由它而产生。
 
@@ -173,7 +188,7 @@ margin 不计入实际大小，当然，它会影响盒子在页面所占空间�
 
 两者在被添加 border padding 时发生了不同的变化，border-box 是弹簧的压缩过程，content-box 是弹簧的复原的过程。
 
-#### margin相关问题(p380)
+#### 1.2 margin相关问题(p380)
 
 上面是盒模型中 border 和 padding 相关的问题，接下来看一下和 margin 相关的问题，同样借助 setInterval 来展示。
 
@@ -258,7 +273,7 @@ margin 不计入实际大小，当然，它会影响盒子在页面所占空间�
 
 代码的本意是使里面的小盒子相对于大盒子顶部距离 40px，最终产生的效果确是整个大盒子相对于顶部有40px，这个东西可以称为 margin 塌陷，这个东西就需要解决一下了。这里先给出一个解决方案就是给父元素添加属性，overflow:hidden，具体可看 BFC 相关问题。
 
-#### 百分比问题(p378)
+#### 2.3 百分比问题(p378)
 
 border padding 可用单位很多，这里提一下使用百分比时注意的问题。
 
@@ -281,7 +296,7 @@ border padding 可用单位很多，这里提一下使用百分比时注意的�
 
 
 
-### 0. CSS选择器特指度权重问题p106
+### 2. CSS选择器特指度权重问题p106
 
 一句换总结，指向越具体，权重越高。
 ```md
@@ -294,7 +309,7 @@ ID选择器：#ID 0，1，0，0
 属性选择器：input[type="text"]  0，0，1，0
 ```
 
-### 0. 伪类和伪元素
+### 3. 伪类和伪元素
 伪类用于当已有元素处于某个状态时，为其添加对应对的样式，这个状态是根据用户行为而动态变化。
 a标签用户访问前后。动态的。
 
@@ -324,7 +339,7 @@ h6::first-letter {
 
 
 
-### 0. BFC是什么，如何产生，有何作用
+### 4. BFC是什么，如何产生，有何作用
 
 BFC 权威资料 [block-formatting](https://www.w3.org/TR/CSS21/visuren.html#block-formatting)
 
@@ -360,7 +375,7 @@ BFC最大的一个作用就是：在页面上有一个独立隔离容器，容�
 
 
 
-### 0.清除浮动
+### 5.清除浮动
 
 浮动会导致的问题：
 
@@ -383,12 +398,13 @@ BFC最大的一个作用就是：在页面上有一个独立隔离容器，容�
 
 
 
-### 1. 响应式布局，响应式背后的浏览器原理
+### 6. 响应式布局，响应式背后的浏览器原理
 根据浏览器或设备的分辨率可以计算获取到相应的尺寸，通过不同的尺寸可以动态的修改html元素或者盒子在浏览器中的大小，从而实现响应式。
 
 响应式解决方案：
 - 百分比
-- rem
+- [移动端页面开发适配 rem布局原理](https://segmentfault.com/a/1190000007526917)
+- [使用Flexible实现手淘H5页面的终端适配](https://github.com/amfe/article/issues/17)
 - 媒体查询
 
 
@@ -396,7 +412,7 @@ rem是根据根的font-size变化，而em是根据父级的font-size变化。
 
 
 
-### 2. 水平垂直居中
+### 7. 水平垂直居中
 [CSS | 绝对的固定C位](https://www.jianshu.com/p/41b9318839d8)
 
 被居中的元素是inline或者inline-block元素
@@ -447,8 +463,10 @@ flex 布局
   margin : auto;
 }
 ```
-### 3. 常见布局解决方案
+### 8. 常见布局解决方案
 [两栏布局那些事](../css-two-column-layout/)
+
+[只要一行代码，实现五种 CSS 经典布局](http://www.ruanyifeng.com/blog/2020/08/five-css-layouts-in-one-line.html)
 
 实现左边定宽，右边自适应布局
 
@@ -465,14 +483,14 @@ flex 布局
 实现中间自适应宽度，左右两栏固定宽度布局
 
 
-### 4. dom树和cssom树原理
+### 9. dom树和cssom树原理
 这个问题有点深了，其实也是从浏览器输入url到页面显示经历了什么？问题的一部分。
 
 先放一个链接
 [constructing the object model](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/constructing-the-object-model?hl=zh-cn)
 
 
-### 5. CSS3新特性
+### 10. CSS3新特性
 
 ```md
 1.过渡 transition
@@ -485,15 +503,15 @@ flex 布局
 8.弹性布局 flex
 ```
 
-### 6. link与@import区别与选择
+### 11. link与@import区别与选择
 
 当解析到link时，页面会同步加载所引的 css，而@import所引用的 css 会等到页面加载完才被加载。
 
 
-### 7. 一个具体的布局方案
+### 12. 一个具体的布局方案
 有一个高度自适应的div，里面有两个div，一个高度100px，希望另一个填满剩下的高度。这题有js解法、一般css解法、css3解法等。
 
-### 8. 浏览器是怎样解析CSS选择器的？
+### 13. 浏览器是怎样解析CSS选择器的？
 
 dom树和cssom树原理中的知识点，需要数据结构相关的知识储备。
 
@@ -611,6 +629,8 @@ console.log(unique2([1, 1, 2, 3, 5, 3, 1, 5, 6, 7, 4]));
 
 又或者：闭包就是能够读取其他函数内部变量的函数。
 
+[JavaScript基础心法——深浅拷贝](https://github.com/axuebin/articles/issues/20)
+
 
 
 闭包的优点是可以避免全局变量的污染，缺点是闭包会常驻内存，会增大内存使用量，使用不当很容易造成内存泄露。
@@ -679,7 +699,11 @@ async / await 是 generator 的语法糖，是基于 Promise 的。有了async �
 如何使用以及api这里就不展开了。
 
 
-### 8. 箭头函数和普通函数的区别
+### 8. 函数
+
+[防抖和节流](https://juejin.im/post/6844904073829810190)
+
+箭头函数和普通函数的区别
 
 ```
 1,箭头函数是匿名函数，不能作为构造函数，不能使用new
@@ -697,6 +721,9 @@ async / await 是 generator 的语法糖，是基于 Promise 的。有了async �
 
 
 ### 9. 事件相关，事件循环event loop，事件队列，事件委托
+[JavaScript 运行机制详解：再谈Event Loop](http://www.ruanyifeng.com/blog/2014/10/event-loop.html)
+
+[Eventloop不可怕，可怕的是遇上Promise](https://juejin.im/post/6844903808200343559)
 
 ### 10. 客户端持久化存储
 请描述一下 cookies，sessionStorage和 localStorage的区别？
@@ -706,6 +733,25 @@ async / await 是 generator 的语法糖，是基于 Promise 的。有了async �
 ### 11. 算法
 用js实现千位分隔符
 
+## DOM
+。。。
+。。。
+。。。
+
+### 1. 如何选取元素
+```md
+query
+选择器选择一个元素：querySelector()
+选择器选择一组元素:querySelectorAll()
+get
+通过ID获取：document.getElementById('id')
+通过标签获取：document.getElementsByTageName()
+通过class获取：document.getElementsByClassName('class')
+通过name获取: document.getElementsByName('name')
+```
+
+
+
 ## ES6新特性，ES2020新特性
 主要参考书籍《深入理解ES6》
 
@@ -713,19 +759,25 @@ async / await 是 generator 的语法糖，是基于 Promise 的。有了async �
 [ES2020](https://www.jianshu.com/p/d6586d4c33f9)
 
 
-### 2. let const 块级作用域，死区
+### 2. 块级作用域，临时死区TDZ
+let const 
+
+### 3.函数的扩展
+  函数参数指定默认值
+  默认值对 arguments 的影响
+  函数的名字 name 如何确定
+  不定参数对 arguments 的影响
+  箭头函数
 
 ### 3.变量的解构赋值
 
 ### 4.字符串的扩展
-    includes()：返回布尔值，表示是否找到了参数字符串。
-    startsWith()：返回布尔值，表示参数字符串是否在原字符串的头部。
-    endsWith()：返回布尔值，表示参数字符串是否在原字符串的尾部。
+  模板字符串 反引号 美元符号 大括号
+  includes()：返回布尔值，表示是否找到了参数字符串。
+  startsWith()：返回布尔值，表示参数字符串是否在原字符串的头部。
+  endsWith()：返回布尔值，表示参数字符串是否在原字符串的尾部。
 ### 5.数值的扩展
-    Number.isFinite()用来检查一个数值是否为有限的（finite）。
-    Number.isNaN()用来检查一个值是否为NaN。
-### 6.函数的扩展
-    函数参数指定默认值
+
 ###  7.数组的扩展
     扩展运算符
 ### 8.对象的扩展
@@ -821,6 +873,20 @@ nextTick : 更新数据后立即操作dom better-scroll。
 
 Vue3 的响应式原理Vue3.0和2.x的双向数据绑定（object.definePorperty和Proxy）
 
+Vue2 不能检测到以下数组的变动
+利用索引直接修改一个数组的选项时
+```js
+vm.items[indexOf] = newValue
+// 通过set
+// Vue.set(vm.items,indexOf,newValue)
+// this.$set(this.items,indexOf,newValue)
+```
+
+当修改数组的长度时
+```js
+vn.length = newLength
+// this.$items.splice(newLength)
+```
 ### 4. Vue如何解析template模板，diff算法？
 key
 
@@ -842,18 +908,62 @@ data = vm._data = typeof data === 'function'
 ```
 源码告诉你这里可以是函数也可以对象，推荐函数是为了解决组件实例公用同一个data的问题。
 
+为了保证数据之间是互相独立的，互不影响的，使用return即函数，而不是对象，因为对象是内存引用。
+
 ### 8. Vue-Router
+两种模式 history hash
+
+router-link
+router-view
+路由传参
+路由元信息
+
+左右横跳
+```md
+this.$route.back() //回退一步
+this.$route.foreard() //前进一步
+this.$route.go() //指定回退前进的步数
+this.$route.push() //导航到不同的URL，向history栈中添加一个新的记录
+this.$route.replace() //导航到不同的URL，替换掉栈中当前的记录
+this.s4route.meta() //访问Meta中的数据
+```
+
+路由懒加载
+
+导航守卫：通过跳转或取消的方式来守卫导航
 
 ### 9. Vuex
 
 ### 10. axios
 
+借助axios的拦截器实现Vue.js中登陆状态校验
+
+配合路由导航守卫一起使用
+页面发送http请求，很多情况我们要对请求和其响应进行特定的处理。
+
+例如每个请求都附带后端返回的token，拿到response之前loading动画的展示等。
+
+在这种情况下，axios为开发者提供了这样一个API：拦截器。
+
+拦截器分为 请求（request）拦截器和 响应（response）拦截器。
+
+[https://www.imooc.com/article/25167](https://www.imooc.com/article/25167)
+
+### 11. 如何设计一个自己的组件库
 
 ## 网络
+参考书籍主要是《HTTP权威指南》
 ### 0. 输入url到看到页面，发生了什么？
+DNS解析
+
 ### 0. http特性以及状态码
+无状态
+
 ### 0. get与post请求区别
-### 0. http的三次握手
+
+### 0. 三次握手，四次挥手
+[跟着动画学习TCP三次握手和四次挥手](https://mp.weixin.qq.com/s/pSrKbVryn71kDVIXUtpXMA)
+
 
 ### 1. 如何解决跨域问题
 
@@ -876,7 +986,9 @@ data = vm._data = typeof data === 'function'
 
 ### 4. 试从域名解析原理的角度简单分析，域名劫持是怎么发生的？有什么危害？
 
-### 5. http2有什么改进？
+### 5. WebSocket
+
+### 6. http2有什么改进？
 
 ## 前端工程化
 ### 0. 前端模块化规范AMD CMD CommonJS
@@ -893,6 +1005,8 @@ data = vm._data = typeof data === 'function'
 - Git
 
 ## 闲聊
+
+[面试被问项目经验不用慌，按这个步骤回答绝对惊艳](https://juejin.im/post/6844904102795706375)
 
 ### 0. 你是如何学习前端知识的？
 
