@@ -26,6 +26,17 @@
 
 本文档会随着本人的自我成长而不断完善。
 
+鉴于前端发展迅猛的特点，规范的定制会存在一定的滞后性，在 “规范” 的解决方案出现之前，社区可能会出现一些“技巧”性解决方法。
+
+比如 jsonp 在跨域中的应用。padding-bottom实现等比例布局。
+
+虽然 jsonp 和 padding-bottom 都是比较 “hack” 的手段，但两者的处境还是有区别的，跨域现在已经有了比较规范的解决方法 cors 可以替代，但在普通元素实现固定宽高比这个问题上，目前而言，
+padding-bottom 还是比较常用的方式，规范化的解决方案 `aspect-ratio` 还在草案阶段。
+
+这些“技巧”性解决方法在一定的时间维度内可能是仅能使用的方案，但这里只会提到“规范”的解决方案。
+
+兼容性问题这里也会尽量少地涉及，一些过渡性的解决方案也会一笔带过。
+
 可能，大概，也许，今天的理解在未来的某个时间点发生变化。
 
 ## 考察的大方向
@@ -54,46 +65,18 @@
 
 使用合适的标签书写合适的内容，避免使用过多无意义的标签。说说而已，大多数时候还是 div span 一把梭。
 
-- canvas api 较多且应用场景有限，暂且不管。
-- 对本地离线存储有更好的支持，localStorage 长期存储数据，浏览器关闭后数据不丢失；sessionStorage 的数据在浏览器关闭后自动删除。
-
 
 ### 2. 常用的meta标签
 ```html
 <!-- 抄自jianshu -->
-<meta charset="utf-8">
+  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
-
-  <!-- Start of Baidu Transcode -->
-  <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <meta http-equiv="Cache-Control" content="no-transform" />
-  <meta name="applicable-device" content="pc,mobile">
-  <meta name="MobileOptimized" content="width"/>
-  <meta name="HandheldFriendly" content="true"/>
-  <meta name="mobile-agent" content="format=html5;url=https://www.jianshu.com/u/e20f22d3e8d3">
-  <!-- End of Baidu Transcode -->
-
-    <meta name="description"  content="少玩简书多读书">
-
-  <meta name="tencent-site-verification" content="39a5ed77a02c0103af6ac08addbc3851"/>
-  <meta name="360-site-verification" content="604a14b53c6b871206001285921e81d8" />
-  <meta property="wb:webmaster" content="294ec9de89e7fadb" />
-  <meta property="qc:admins" content="104102651453316562112116375" />
-  <meta property="qc:admins" content="11635613706305617" />
-  <meta property="qc:admins" content="1163561616621163056375" />
-  <meta name="google-site-verification" content="6ARJIxhZLIgZT7J8MZkENr5mR0-CqshgzYyA3r3jBWU" />
+  <meta name="description"  content="少玩简书多读书">
   <meta http-equiv="mobile-agent" content="format=html5; url=https://www.jianshu.com/u/e20f22d3e8d3">
-
-  <!-- Apple -->
-  <meta name="apple-mobile-web-app-title" content="简书">
-
-  
-
-    <title>cemcoe - 简书</title>
-
+  <title>cemcoe - 简书</title>
   <meta name="csrf-param" content="authenticity_token" />
-<meta name="csrf-token" content="yOdlTYWqpFdlcgvD9X3d8xxxxxxxxxxxy64ZXwH2cFOlsnCo+dlsiLNRYwknNeblVOPK5MQmZhyxwrDg==" />
+  <meta name="csrf-token" content="yOdlTYWqpFdlcgvD9X3d8xxxxxxxxxxxy64ZXwH2cFOlsnCo+dlsiLNRYwknNeblVOPK5MQmZhyxwrDg==" />
 ```
 
 这里的重点是 meta viewport，是针对移动端优化用的，涉及内容多，有空写。
@@ -106,10 +89,6 @@
 知识点包括盒模型，选择器，居中方案，浮动，flex，grid。
 
 其他的东西用到了查文档就好了，不必强行记忆。
-
-
-### 0. 待学习的知识点
-- 视差滚动（Parallax Scrolling）
 
 ### 1. [盒模型P316](https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/The_box_model)
 
@@ -124,11 +103,11 @@ box-sizing：content-box   //标准盒模型，默认值
 box-sizing：border-box    //怪异盒模型
 ```
 
-标准盒模型：元素的宽度等于元素的 width+padding+border 宽度。加 padding border 会撑开。
+content-box：元素的宽度等于元素的 width+padding+border 宽度。加 padding border 会撑开。
 
 margin 不计入实际大小，当然，它会影响盒子在页面所占空间，但是影响的是盒子外部空间。盒子的范围到边框为止，不会延伸到 margin。
 
-怪异盒模型：元素宽度就是元素的 width 宽度，加 border 会往里凹。虽然它叫怪异盒模型，但可能这种模式更加符合人的心理预期。
+border-box：元素宽度就是元素的 width 宽度，加 border 会往里凹。虽然它叫怪异盒模型，但可能这种模式更加符合人的心理预期。
 
 两种模式的区别在于添加 padding 和 border 时，去占用自身的空间还是去扩展新的边界。下图展示的是两种模式切换对盒子的影响。
 
@@ -497,7 +476,7 @@ flex 布局
 2.动画 animation
 3.形状转换 transform
 4.阴影 box-shadow
-5.滤镜 Filter
+5.滤镜 filter
 6.颜色 rgba
 7.栅格布局 gird
 8.弹性布局 flex
@@ -526,7 +505,7 @@ CSS选择器的解析是从右向左解析的，为了避免对所有元素进�
 而在 CSS 解析完毕后，需要将解析的结果与 DOM Tree 的内容一起进行分析建立一棵 Render Tree，最终用来进行绘图。在建立 Render Tree 时（WebKit 中的「Attachment」过程），浏览器就要为每个 DOM Tree 中的元素根据 CSS 的解析结果（Style Rules）来确定生成怎样的 Render Tree。
 
 
-总结一下，CSS 中一个概念盒模型，两个问题 margin 塌陷，浮动清除，三种布局，常规布局，flex，grid布局。
+总结一下，CSS 中一个概念盒模型，两个问题 margin 塌陷，浮动清除，三种布局，常规布局，flex，grid布局。核心是如何布局。
 
 
 ## JavaScript
@@ -614,9 +593,12 @@ console.log(unique2([1, 1, 2, 3, 5, 3, 1, 5, 6, 7, 4]));
 
 
 #### 深浅拷贝
+
+[JavaScript基础心法——深浅拷贝](https://github.com/axuebin/articles/issues/20)
+
 浅拷贝：浅拷贝通过ES6新特性 `Object.assign()` 或者通过扩展运算法 `...`来达到浅拷贝的目的。
 
-浅拷贝修改副本，不会影响原数据，但缺点是浅拷贝只能拷贝第一层的数据，且都是值类型数据，如果有引用型数据，修改副本会影响原数据。
+缺点是浅拷贝只能拷贝第一层的数据，且都是值类型数据，如果有引用型数据，修改副本会影响原数据。
 
 深拷贝：通过利用 `JSON.parse(JSON.stringify())` 来实现深拷贝的目的。
 
@@ -629,7 +611,7 @@ console.log(unique2([1, 1, 2, 3, 5, 3, 1, 5, 6, 7, 4]));
 
 又或者：闭包就是能够读取其他函数内部变量的函数。
 
-[JavaScript基础心法——深浅拷贝](https://github.com/axuebin/articles/issues/20)
+
 
 
 
@@ -647,12 +629,7 @@ console.log(unique2([1, 1, 2, 3, 5, 3, 1, 5, 6, 7, 4]));
 
 new 操作符做了什么？
 
-这里有cat和animal子类和父类，如何进行es5继承，至少说出5种。
-
 [06-1 | 读JavaScript 高程](https://www.jianshu.com/p/6bfd709aa441)
-
-原型链能够实现所谓的继承的本质原因是什么？
-
 
 ### 6. this 上册82
 
@@ -731,7 +708,9 @@ async / await 是 generator 的语法糖，是基于 Promise 的。有了async �
 主要从作用，大小，存储位置，何时销毁回答。
 
 ### 11. 算法
-用js实现千位分隔符
+。。。。
+。。。。
+。。。。
 
 ## DOM
 。。。
@@ -752,75 +731,6 @@ get
 
 
 
-## ES6新特性，ES2020新特性
-主要参考书籍《深入理解ES6》
-
-### 1. ES2020
-[ES2020](https://www.jianshu.com/p/d6586d4c33f9)
-
-
-### 2. 块级作用域，临时死区TDZ
-let const 
-
-### 3.函数的扩展
-  函数参数指定默认值
-  默认值对 arguments 的影响
-  函数的名字 name 如何确定
-  不定参数对 arguments 的影响
-  箭头函数
-
-### 3.变量的解构赋值
-
-### 4.字符串的扩展
-  模板字符串 反引号 美元符号 大括号
-  includes()：返回布尔值，表示是否找到了参数字符串。
-  startsWith()：返回布尔值，表示参数字符串是否在原字符串的头部。
-  endsWith()：返回布尔值，表示参数字符串是否在原字符串的尾部。
-### 5.数值的扩展
-
-###  7.数组的扩展
-    扩展运算符
-### 8.对象的扩展
-    对象的解构
-### 9.新增 symbol 和 BigInt 数据类型
-
-### 10.Set 和 Map 数据结构 
-    ES6 提供了新的数据结构 Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。 Set 本身是一个构造函数，用来生成 Set 数据结构。
-    
-    Map它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。
-### 11.Proxy
-    Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问
-    都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。
-    Proxy 这个词的原意是代理，用在这里表示由它来“代理”某些操作，可以译为“代理器”。
-    Vue3.0使用了proxy
-### 12.Promise
-    Promise 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。
-    特点是：
-        对象的状态不受外界影响。
-        一旦状态改变，就不会再变，任何时候都可以得到这个结果。
-### 13.async 函数 
-    async函数对 Generator 函数的区别：
-    （1）内置执行器。
-    Generator 函数的执行必须靠执行器，而async函数自带执行器。也就是说，async函数的执行，与普通函数一模一样，只要一行。
-    （2）更好的语义。
-    async和await，比起星号和yield，语义更清楚了。async表示函数里有异步操作，await表示紧跟在后面的表达式需要等待结果。
-    （3）正常情况下，await命令后面是一个 Promise 对象。如果不是，会被转成一个立即resolve的 Promise 对象。
-    （4）返回值是 Promise。
-    async函数的返回值是 Promise 对象，这比 Generator 函数的返回值是 Iterator 对象方便多了。你可以用then方法指定下一步的操作。
-### 14.Class 
-    class跟let、const一样：不存在变量提升、不能重复声明...
-    ES6 的class可以看作只是一个语法糖，它的绝大部分功能
-    ES5 都可以做到，新的class写法只是让对象原型的写法更加清晰、更像面向对象编程的语法而已。
-### 15.Module
-    ES6 的模块自动采用严格模式，不管你有没有在模块头部加上"use strict";。
-    import和export命令以及export和export default的区别
-
-
-
-
-
-
-
 
 ## Vue
 
@@ -834,7 +744,9 @@ let const
 
 MVVM(Model-View-ViewModel)
 Model(模型):数据层，负责存储数据。
+
 View(控制器):就是ViewController层，他的任务就是从ViewModel层获取数据，然后显示。
+
 ViewModel(视图模型):就是View和Model层的粘合剂，封装业务逻辑处理，封装网络处理，封装数据缓存。
 
 ### 2. 生命周期
@@ -906,9 +818,9 @@ data = vm._data = typeof data === 'function'
 ? getData(data, vm)
 : data || {}
 ```
-源码告诉你这里可以是函数也可以对象，推荐函数是为了解决组件实例公用同一个data的问题。
+源码告诉你这里可以是函数也可以对象，推荐函数是为了解决组件实例共用同一个 data 的问题。
 
-为了保证数据之间是互相独立的，互不影响的，使用return即函数，而不是对象，因为对象是内存引用。
+为了保证数据之间是互相独立的，互不影响的，使用 return 即函数，而不是对象，因为对象是内存引用。
 
 ### 8. Vue-Router
 两种模式 history hash
@@ -925,7 +837,7 @@ this.$route.foreard() //前进一步
 this.$route.go() //指定回退前进的步数
 this.$route.push() //导航到不同的URL，向history栈中添加一个新的记录
 this.$route.replace() //导航到不同的URL，替换掉栈中当前的记录
-this.s4route.meta() //访问Meta中的数据
+this.sroute.meta() //访问Meta中的数据
 ```
 
 路由懒加载
@@ -936,12 +848,13 @@ this.s4route.meta() //访问Meta中的数据
 
 ### 10. axios
 
-借助axios的拦截器实现Vue.js中登陆状态校验
+借助 axios 的拦截器实现 Vue.js 中登陆状态校验
 
 配合路由导航守卫一起使用
+
 页面发送http请求，很多情况我们要对请求和其响应进行特定的处理。
 
-例如每个请求都附带后端返回的token，拿到response之前loading动画的展示等。
+例如每个请求都附带后端返回的token，拿到 response 之前 loading 动画的展示等。
 
 在这种情况下，axios为开发者提供了这样一个API：拦截器。
 
@@ -950,14 +863,15 @@ this.s4route.meta() //访问Meta中的数据
 [https://www.imooc.com/article/25167](https://www.imooc.com/article/25167)
 
 ### 11. 如何设计一个自己的组件库
+。。。
 
 ## 网络
 参考书籍主要是《HTTP权威指南》
 ### 0. 输入url到看到页面，发生了什么？
-DNS解析
+
 
 ### 0. http特性以及状态码
-无状态
+
 
 ### 0. get与post请求区别
 
@@ -981,8 +895,6 @@ DNS解析
 我们普通网站常用的认证就是session-cookie的方式，用户向服务端发生请求，服务端会创建session并保存相关身份信息，并向客户端下发一个sessionId,大家如果用心的话，会发现跟JAVA交互的时候，浏览器会有一个JSESSION_ID，跟PHP交互的时候，会有一个PHPSESSION_ID;后面的每次请求，客户端都会自动带上这个cookie跟服务端通信。
 
 > 实际上大家要明白每一种方式的作用；SSO主要用来做单点登录；OAuth主要用来做第三方网站授权；JWT就是一种便于扩展的跨域认证解决方案，通常会考察这个。
-
-关于JWT我这儿不展开讲，给大家推荐[阮一峰](http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html)的讲解。
 
 ### 4. 试从域名解析原理的角度简单分析，域名劫持是怎么发生的？有什么危害？
 
