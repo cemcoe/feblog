@@ -26,6 +26,17 @@
 
 本文档会随着本人的自我成长而不断完善。
 
+鉴于前端发展迅猛的特点，规范的定制会存在一定的滞后性，在 “规范” 的解决方案出现之前，社区可能会出现一些“技巧”性解决方法。
+
+比如 jsonp 在跨域中的应用。padding-bottom实现等比例布局。
+
+虽然 jsonp 和 padding-bottom 都是比较 “hack” 的手段，但两者的处境还是有区别的，跨域现在已经有了比较规范的解决方法 cors 可以替代，但在普通元素实现固定宽高比这个问题上，目前而言，
+padding-bottom 还是比较常用的方式，规范化的解决方案 `aspect-ratio` 还在草案阶段。
+
+这些“技巧”性解决方法在一定的时间维度内可能是仅能使用的方案，但这里只会提到“规范”的解决方案。
+
+兼容性问题这里也会尽量少地涉及，一些过渡性的解决方案也会一笔带过。
+
 可能，大概，也许，今天的理解在未来的某个时间点发生变化。
 
 ## 考察的大方向
@@ -56,6 +67,26 @@
 
 使用合适的标签书写合适的内容，避免使用过多无意义的标签。说说而已，大多数时候还是 div span 一把梭。
 
+<<<<<<< HEAD
+=======
+
+### 2. 常用的meta标签
+```html
+<!-- 抄自jianshu -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+  <meta name="description"  content="少玩简书多读书">
+  <meta http-equiv="mobile-agent" content="format=html5; url=https://www.jianshu.com/u/e20f22d3e8d3">
+  <title>cemcoe - 简书</title>
+  <meta name="csrf-param" content="authenticity_token" />
+  <meta name="csrf-token" content="yOdlTYWqpFdlcgvD9X3d8xxxxxxxxxxxy64ZXwH2cFOlsnCo+dlsiLNRYwknNeblVOPK5MQmZhyxwrDg==" />
+```
+
+这里的重点是 meta viewport，是针对移动端优化用的，涉及内容多，有空写。
+
+
+>>>>>>> a31abfc7c42f82d6c85a9a0f6022a94403e0c0dd
 ## CSS
 
 不向那些低版本浏览器低头。
@@ -66,7 +97,10 @@
 
 其他的东西用到了查文档就好了，不必强行记忆。
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> a31abfc7c42f82d6c85a9a0f6022a94403e0c0dd
 ### 1. [盒模型P316](https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/The_box_model)
 
 
@@ -452,7 +486,7 @@ grid 布局
 2.动画 animation
 3.形状转换 transform
 4.阴影 box-shadow
-5.滤镜 Filter
+5.滤镜 filter
 6.颜色 rgba
 7.栅格布局 gird
 8.弹性布局 flex
@@ -473,7 +507,7 @@ CSS选择器的解析是从右向左解析的，为了避免对所有元素进�
 而在 CSS 解析完毕后，需要将解析的结果与 DOM Tree 的内容一起进行分析建立一棵 Render Tree，最终用来进行绘图。在建立 Render Tree 时（WebKit 中的「Attachment」过程），浏览器就要为每个 DOM Tree 中的元素根据 CSS 的解析结果（Style Rules）来确定生成怎样的 Render Tree。
 
 
-总结一下，CSS 中一个概念盒模型，两个问题 margin 塌陷，浮动清除，三种布局，常规布局，flex，grid布局。
+总结一下，CSS 中一个概念盒模型，两个问题 margin 塌陷，浮动清除，三种布局，常规布局，flex，grid布局。核心是如何布局。
 
 
 ## JavaScript
@@ -563,9 +597,16 @@ console.log(unique2([1, 1, 2, 3, 5, 3, 1, 5, 6, 7, 4]));
 
 
 #### 深浅拷贝
+<<<<<<< HEAD
 浅拷贝：浅拷贝通过ES6新特性 `const returnedTarget = Object.assign(target, source);` 或者通过扩展运算法 `...`来达到浅拷贝的目的。
+=======
 
-浅拷贝修改副本，不会影响原数据，但缺点是浅拷贝只能拷贝第一层的数据，且都是值类型数据，如果有引用型数据，修改副本会影响原数据。
+[JavaScript基础心法——深浅拷贝](https://github.com/axuebin/articles/issues/20)
+
+浅拷贝：浅拷贝通过ES6新特性 `Object.assign()` 或者通过扩展运算法 `...`来达到浅拷贝的目的。
+>>>>>>> a31abfc7c42f82d6c85a9a0f6022a94403e0c0dd
+
+缺点是浅拷贝只能拷贝第一层的数据，且都是值类型数据，如果有引用型数据，修改副本会影响原数据。
 
 深拷贝：通过利用 `JSON.parse(JSON.stringify())` 来实现深拷贝的目的。
 
@@ -588,7 +629,7 @@ console.log(unique2([1, 1, 2, 3, 5, 3, 1, 5, 6, 7, 4]));
 
 又或者：闭包就是能够读取其他函数内部变量的函数。
 
-[JavaScript基础心法——深浅拷贝](https://github.com/axuebin/articles/issues/20)
+
 
 
 
@@ -607,9 +648,6 @@ console.log(unique2([1, 1, 2, 3, 5, 3, 1, 5, 6, 7, 4]));
 new 操作符做了什么？
 
 [06-1 | 读JavaScript 高程](https://www.jianshu.com/p/6bfd709aa441)
-
-原型链能够实现所谓的继承的本质原因是什么？
-
 
 ### 6. this 上册82
 
@@ -698,7 +736,9 @@ JS中的微任务：Promise.then  Promise.catch   await(可以理解成Promis
 [https://jerryzou.com/posts/cookie-and-web-storage/](https://jerryzou.com/posts/cookie-and-web-storage/)
 
 ### 11. 算法
-用js实现千位分隔符
+。。。。
+。。。。
+。。。。
 
 防抖函数debounce原理：在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。
 多次事件一次响应的情况
@@ -755,6 +795,7 @@ get
 
 
 
+<<<<<<< HEAD
 ## ES6新特性，ES2020新特性
 主要参考书籍《深入理解ES6》
 
@@ -771,6 +812,8 @@ var let const 区别，联想预编译过程变量声明提升
   函数的名字 name 如何确定
   不定参数对 arguments 的影响
   箭头函数
+=======
+>>>>>>> a31abfc7c42f82d6c85a9a0f6022a94403e0c0dd
 
 ## Vue
 
@@ -784,7 +827,9 @@ var let const 区别，联想预编译过程变量声明提升
 
 MVVM(Model-View-ViewModel)
 Model(模型):数据层，负责存储数据。
+
 View(控制器):就是ViewController层，他的任务就是从ViewModel层获取数据，然后显示。
+
 ViewModel(视图模型):就是View和Model层的粘合剂，封装业务逻辑处理，封装网络处理，封装数据缓存。
 
 ### 2. 生命周期
@@ -857,23 +902,45 @@ data = vm._data = typeof data === 'function'
 ? getData(data, vm)
 : data || {}
 ```
-源码告诉你这里可以是函数也可以对象，推荐函数是为了解决组件实例公用同一个data的问题。
+源码告诉你这里可以是函数也可以对象，推荐函数是为了解决组件实例共用同一个 data 的问题。
 
-为了保证数据之间是互相独立的，互不影响的，使用return即函数，而不是对象，因为对象是内存引用。
+为了保证数据之间是互相独立的，互不影响的，使用 return 即函数，而不是对象，因为对象是内存引用。
 
 ### 8. Vue-Router
+<<<<<<< HEAD
+=======
+两种模式 history hash
+
+router-link
+router-view
+路由传参
+路由元信息
+
+左右横跳
+```md
+this.$route.back() //回退一步
+this.$route.foreard() //前进一步
+this.$route.go() //指定回退前进的步数
+this.$route.push() //导航到不同的URL，向history栈中添加一个新的记录
+this.$route.replace() //导航到不同的URL，替换掉栈中当前的记录
+this.sroute.meta() //访问Meta中的数据
+```
+
+路由懒加载
+>>>>>>> a31abfc7c42f82d6c85a9a0f6022a94403e0c0dd
 
 
 ### 9. Vuex
 
 ### 10. axios
 
-借助axios的拦截器实现Vue.js中登陆状态校验
+借助 axios 的拦截器实现 Vue.js 中登陆状态校验
 
 配合路由导航守卫一起使用
+
 页面发送http请求，很多情况我们要对请求和其响应进行特定的处理。
 
-例如每个请求都附带后端返回的token，拿到response之前loading动画的展示等。
+例如每个请求都附带后端返回的token，拿到 response 之前 loading 动画的展示等。
 
 在这种情况下，axios为开发者提供了这样一个API：拦截器。
 
@@ -926,14 +993,15 @@ export function request(config) {
 ```
 
 ### 11. 如何设计一个自己的组件库
+。。。
 
 ## 网络
 参考书籍主要是《HTTP权威指南》
 ### 0. 输入url到看到页面，发生了什么？
-DNS解析
+
 
 ### 0. http特性以及状态码
-无状态
+
 
 ### 0. get与post请求区别
 
@@ -995,8 +1063,6 @@ ctx.set("Access-Control-Allow-Origin", "*");
 我们普通网站常用的认证就是session-cookie的方式，用户向服务端发生请求，服务端会创建session并保存相关身份信息，并向客户端下发一个sessionId,大家如果用心的话，会发现跟JAVA交互的时候，浏览器会有一个JSESSION_ID，跟PHP交互的时候，会有一个PHPSESSION_ID;后面的每次请求，客户端都会自动带上这个cookie跟服务端通信。
 
 > 实际上大家要明白每一种方式的作用；SSO主要用来做单点登录；OAuth主要用来做第三方网站授权；JWT就是一种便于扩展的跨域认证解决方案，通常会考察这个。
-
-关于JWT我这儿不展开讲，给大家推荐[阮一峰](http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html)的讲解。
 
 ### 4. 试从域名解析原理的角度简单分析，域名劫持是怎么发生的？有什么危害？
 
