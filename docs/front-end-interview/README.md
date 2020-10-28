@@ -67,26 +67,6 @@ padding-bottom 还是比较常用的方式，规范化的解决方案 `aspect-ra
 
 使用合适的标签书写合适的内容，避免使用过多无意义的标签。说说而已，大多数时候还是 div span 一把梭。
 
-<<<<<<< HEAD
-=======
-
-### 2. 常用的meta标签
-```html
-<!-- 抄自jianshu -->
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
-  <meta name="description"  content="少玩简书多读书">
-  <meta http-equiv="mobile-agent" content="format=html5; url=https://www.jianshu.com/u/e20f22d3e8d3">
-  <title>cemcoe - 简书</title>
-  <meta name="csrf-param" content="authenticity_token" />
-  <meta name="csrf-token" content="yOdlTYWqpFdlcgvD9X3d8xxxxxxxxxxxy64ZXwH2cFOlsnCo+dlsiLNRYwknNeblVOPK5MQmZhyxwrDg==" />
-```
-
-这里的重点是 meta viewport，是针对移动端优化用的，涉及内容多，有空写。
-
-
->>>>>>> a31abfc7c42f82d6c85a9a0f6022a94403e0c0dd
 ## CSS
 
 不向那些低版本浏览器低头。
@@ -97,10 +77,6 @@ padding-bottom 还是比较常用的方式，规范化的解决方案 `aspect-ra
 
 其他的东西用到了查文档就好了，不必强行记忆。
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a31abfc7c42f82d6c85a9a0f6022a94403e0c0dd
 ### 1. [盒模型P316](https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/The_box_model)
 
 
@@ -597,14 +573,7 @@ console.log(unique2([1, 1, 2, 3, 5, 3, 1, 5, 6, 7, 4]));
 
 
 #### 深浅拷贝
-<<<<<<< HEAD
 浅拷贝：浅拷贝通过ES6新特性 `const returnedTarget = Object.assign(target, source);` 或者通过扩展运算法 `...`来达到浅拷贝的目的。
-=======
-
-[JavaScript基础心法——深浅拷贝](https://github.com/axuebin/articles/issues/20)
-
-浅拷贝：浅拷贝通过ES6新特性 `Object.assign()` 或者通过扩展运算法 `...`来达到浅拷贝的目的。
->>>>>>> a31abfc7c42f82d6c85a9a0f6022a94403e0c0dd
 
 缺点是浅拷贝只能拷贝第一层的数据，且都是值类型数据，如果有引用型数据，修改副本会影响原数据。
 
@@ -792,29 +761,6 @@ get
 通过class获取：document.getElementsByClassName('class')
 通过name获取: document.getElementsByName('name')
 ```
-
-
-
-<<<<<<< HEAD
-## ES6新特性，ES2020新特性
-主要参考书籍《深入理解ES6》
-
-### 1. ES2020
-[ES2020](https://www.jianshu.com/p/d6586d4c33f9)
-
-
-### 2. 块级作用域，临时死区TDZ
-var let const 区别，联想预编译过程变量声明提升
-
-### 3.函数的扩展
-  函数参数指定默认值
-  默认值对 arguments 的影响
-  函数的名字 name 如何确定
-  不定参数对 arguments 的影响
-  箭头函数
-=======
->>>>>>> a31abfc7c42f82d6c85a9a0f6022a94403e0c0dd
-
 ## Vue
 
 ### 0. 什么是组件化
@@ -907,27 +853,6 @@ data = vm._data = typeof data === 'function'
 为了保证数据之间是互相独立的，互不影响的，使用 return 即函数，而不是对象，因为对象是内存引用。
 
 ### 8. Vue-Router
-<<<<<<< HEAD
-=======
-两种模式 history hash
-
-router-link
-router-view
-路由传参
-路由元信息
-
-左右横跳
-```md
-this.$route.back() //回退一步
-this.$route.foreard() //前进一步
-this.$route.go() //指定回退前进的步数
-this.$route.push() //导航到不同的URL，向history栈中添加一个新的记录
-this.$route.replace() //导航到不同的URL，替换掉栈中当前的记录
-this.sroute.meta() //访问Meta中的数据
-```
-
-路由懒加载
->>>>>>> a31abfc7c42f82d6c85a9a0f6022a94403e0c0dd
 
 
 ### 9. Vuex
