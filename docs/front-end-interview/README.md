@@ -7,11 +7,11 @@
 以题为引，以书为源，以博客为令箭来探一探前端的路。
 
 参考的书籍包括但不限于以下几本：
-- 《JavaScript高级程序设计》
-- 《你不知道的JavaSript》
-- 《CSS权威指南》
+- 《JavaScript高级程序设计》大而全
+- 《你不知道的JavaSript》没有DOM和BOM相关内容
 - 《深入理解ES6》
 - 《HTTP权威指南》
+- 《CSS权威指南》
 
 本文只会提供回答题目的大致的方向，且会提供较为口语化的内容。
 
@@ -32,74 +32,33 @@
 
 从网上找来的宏观考察点。先来确定大方向，大方向不要错。枪在手，跟我走。
 
-- 基础知识（HTML、CSS、JS）
-- 高级部分（源码、优化等）
+- 基础知识（HTML、CSS、JS）重点在JS
 - 积极性（开源项目、博客积累等）
 - 视野（新技术的了解和学习）
+- 高级部分（源码、优化等）
 
 ## 自我介绍
 
-基本信息：我叫xxx， 我2019年毕业于xxx，我大学的专业是xxx，上一份工作是在xx公司担任xxx职务。
+基本信息：我叫xxx， 我 2019 年毕业于xxx，我大学的专业是xxx。
 
-项目经验：主要负责xx网站维护和开发，技术栈使用Vue全家桶，同时使用node开发中间层。
+项目经验：学习途径主要是在 B站 看视频教程和在蓝桥的实验楼网站练习，有使用 Vue 开发项目的经验，技术栈是 Vue 全家桶。
 
-面试目的：这次想找一份前端工程师的职位。
+近期活动：同时最近在尝试学习 Node，想着能自己做一些 api 接口，期望借此能够更好地理解前后端分离开发的模式。
+
+面试目的：这次我想找一份前端开发的工作。
 
 
 ## HTML
-单独考察 HTML 的题目不是很多，常常配合 CSS 和 JS 来考察。
+单独考察 HTML 的题目不是很多，常常配合 CSS 和 JS 来考察。很有可能直接跳到 JS。
 
 ### 1. HTML5新特性，语义化？
 子问题，对语义化的理解？HTML5新增的标签？
 
 使用合适的标签书写合适的内容，避免使用过多无意义的标签。说说而已，大多数时候还是 div span 一把梭。
 
-- canvas api 较多且应用场景有限，暂且不管。
-- 对本地离线存储有更好的支持，localStorage 长期存储数据，浏览器关闭后数据不丢失；sessionStorage 的数据在浏览器关闭后自动删除。
-
-
-### 2. 常用的meta标签
-```html
-<!-- 抄自jianshu -->
-<meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
-
-  <!-- Start of Baidu Transcode -->
-  <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <meta http-equiv="Cache-Control" content="no-transform" />
-  <meta name="applicable-device" content="pc,mobile">
-  <meta name="MobileOptimized" content="width"/>
-  <meta name="HandheldFriendly" content="true"/>
-  <meta name="mobile-agent" content="format=html5;url=https://www.jianshu.com/u/e20f22d3e8d3">
-  <!-- End of Baidu Transcode -->
-
-    <meta name="description"  content="少玩简书多读书">
-
-  <meta name="tencent-site-verification" content="39a5ed77a02c0103af6ac08addbc3851"/>
-  <meta name="360-site-verification" content="604a14b53c6b871206001285921e81d8" />
-  <meta property="wb:webmaster" content="294ec9de89e7fadb" />
-  <meta property="qc:admins" content="104102651453316562112116375" />
-  <meta property="qc:admins" content="11635613706305617" />
-  <meta property="qc:admins" content="1163561616621163056375" />
-  <meta name="google-site-verification" content="6ARJIxhZLIgZT7J8MZkENr5mR0-CqshgzYyA3r3jBWU" />
-  <meta http-equiv="mobile-agent" content="format=html5; url=https://www.jianshu.com/u/e20f22d3e8d3">
-
-  <!-- Apple -->
-  <meta name="apple-mobile-web-app-title" content="简书">
-
-  
-
-    <title>cemcoe - 简书</title>
-
-  <meta name="csrf-param" content="authenticity_token" />
-<meta name="csrf-token" content="yOdlTYWqpFdlcgvD9X3d8xxxxxxxxxxxy64ZXwH2cFOlsnCo+dlsiLNRYwknNeblVOPK5MQmZhyxwrDg==" />
-```
-
-这里的重点是 meta viewport，是针对移动端优化用的，涉及内容多，有空写。
-
-
 ## CSS
+
+不向那些低版本浏览器低头。
 
 这部分的参考资料主要是 《CSS权威指南第四版》，会给出页码。
 
@@ -108,31 +67,30 @@
 其他的东西用到了查文档就好了，不必强行记忆。
 
 
-### 0. 待学习的知识点
-- 视差滚动（Parallax Scrolling）
-
 ### 1. [盒模型P316](https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/The_box_model)
 
-#### 1.1 两种盒模型
 
 盒模型应该是一个在 CSS 中比较基础的概念点，很多问题由它而产生。
 
-最权威的资料在这里[css-box-3](https://www.w3.org/TR/css-box-3/)
+最权威的资料在这里[css-box-3](https://www.w3.org/TR/css-box-3/)。
+
+#### 1.1 两种盒模型
+
 
 ```md
 box-sizing：content-box   //标准盒模型，默认值
 box-sizing：border-box    //怪异盒模型
 ```
 
-标准盒模型：元素的宽度等于元素的 width+padding+border 宽度。加 padding border 会撑开。
+content-box：元素的宽度等于元素的 width+padding+border 宽度。加 padding border 会撑开。
 
 margin 不计入实际大小，当然，它会影响盒子在页面所占空间，但是影响的是盒子外部空间。盒子的范围到边框为止，不会延伸到 margin。
 
-怪异盒模型：元素宽度就是元素的 width 宽度，加 border 会往里凹。虽然它叫怪异盒模型，但可能这种模式更加符合人的心理预期。
+border-box：元素宽度就是元素的 width 宽度，加 border 会往里凹。虽然它叫怪异盒模型，但可能这种模式更加符合人的心理预期。
 
 两种模式的区别在于添加 padding 和 border 时，去占用自身的空间还是去扩展新的边界。下图展示的是两种模式切换对盒子的影响。
 
-在使用 JavaScript 获取盒子的各种 width 时会产生影响，详见[understanding offsetwidth clientwidth scrollwidth and height](https://stackoverflow.com/questions/21064101/understanding-offsetwidth-clientwidth-scrollwidth-and-height-respectively)。
+在使用 JavaScript 获取盒子的各种 width 时会产生影响，详见 [understanding offsetwidth clientwidth scrollwidth and height](https://stackoverflow.com/questions/21064101/understanding-offsetwidth-clientwidth-scrollwidth-and-height-respectively)。
 
 ![盒模型](./box-model.gif)
 
@@ -310,7 +268,7 @@ ID选择器：#ID 0，1，0，0
 ```
 
 ### 3. 伪类和伪元素
-伪类用于当已有元素处于某个状态时，为其添加对应对的样式，这个状态是根据用户行为而动态变化。
+伪类用于当已有元素处于某个状态时，为其添加对应的样式，这个状态是根据用户行为而动态变化。
 a标签用户访问前后。动态的。
 
 设计伪元素的目的就是去选取诸如元素内容第一个字（母）、第一行，选取某些内容前面或后面这种普通的选择器无法完成的工作。
@@ -453,15 +411,12 @@ flex 布局
 }
 ```
 
-最简单的方法
+grid 布局
 ```css
-.container{
-  display: flex;
-  height: 600px;
-}
-.center{
-  margin : auto;
-}
+.container {
+  display: grid;
+  place-items: center;
+} 
 ```
 ### 8. 常见布局解决方案
 [两栏布局那些事](../css-two-column-layout/)
@@ -503,15 +458,7 @@ flex 布局
 8.弹性布局 flex
 ```
 
-### 11. link与@import区别与选择
-
-当解析到link时，页面会同步加载所引的 css，而@import所引用的 css 会等到页面加载完才被加载。
-
-
-### 12. 一个具体的布局方案
-有一个高度自适应的div，里面有两个div，一个高度100px，希望另一个填满剩下的高度。这题有js解法、一般css解法、css3解法等。
-
-### 13. 浏览器是怎样解析CSS选择器的？
+### 11. 浏览器是怎样解析CSS选择器的？
 
 dom树和cssom树原理中的知识点，需要数据结构相关的知识储备。
 
@@ -536,15 +483,17 @@ CSS选择器的解析是从右向左解析的，为了避免对所有元素进�
 ### 0. JavaScript的执行过程
 预编译+生成可执行代码
 
+[02-1 | 读JavaScript 高程 | 解释](https://www.jianshu.com/p/7abebcc75978)
+- 创建 AO 对象 Activation Object 执行期上下文
+- 找形参和变量声明，将变量和形参的名挂上，并赋值undefined
+- 将形参和实参相统一
+- 找函数声明，赋值函数体
+
 
 ### 1. 数据类型8种，类型检测，类型转换
 [03 | 读JavaScript 高程](https://www.jianshu.com/p/c9fe9227ce12)
 
 基本类型和引用类型的区别是什么？
-
-null 和 undefined 区别是什么？
-
-“一切皆对象”怎么理解？ 
 
 number 也是对象么？字符串也是对象么？
 
@@ -614,13 +563,23 @@ console.log(unique2([1, 1, 2, 3, 5, 3, 1, 5, 6, 7, 4]));
 
 
 #### 深浅拷贝
-浅拷贝：浅拷贝通过ES6新特性 `Object.assign()` 或者通过扩展运算法 `...`来达到浅拷贝的目的。
+浅拷贝：浅拷贝通过ES6新特性 `const returnedTarget = Object.assign(target, source);` 或者通过扩展运算法 `...`来达到浅拷贝的目的。
 
 浅拷贝修改副本，不会影响原数据，但缺点是浅拷贝只能拷贝第一层的数据，且都是值类型数据，如果有引用型数据，修改副本会影响原数据。
 
 深拷贝：通过利用 `JSON.parse(JSON.stringify())` 来实现深拷贝的目的。
 
+这个代码`JSON.parse(JSON.stringify())`很有意思，先将对象搞成字符串，而后又将字符串搞了回去。这一来一回就完成了深复制，看起来好像是吃饱了撑的没事干。
+
+就好像将水放到冰箱里冻成冰，然后又将冰化成了水。有点多此一举。
+
+这一来一回的转化，其实是斩断对象的烦恼丝。
+
+
 但利用JSON拷贝也是有缺点的，当要拷贝的数据中含有undefined/function/symbol类型是无法进行拷贝的，当然我们想项目开发中需要深拷贝的数据一般不会含有以上三种类型，如有需要可以自己在封装一个函数来实现。
+
+#### 数组扁平化
+
 
 
 ### 3. 闭包
@@ -646,8 +605,6 @@ console.log(unique2([1, 1, 2, 3, 5, 3, 1, 5, 6, 7, 4]));
 ### 5. 原型和原型链
 
 new 操作符做了什么？
-
-这里有cat和animal子类和父类，如何进行es5继承，至少说出5种。
 
 [06-1 | 读JavaScript 高程](https://www.jianshu.com/p/6bfd709aa441)
 
@@ -678,6 +635,7 @@ call和apply都是对函数的直接调用，而bind方法返回的仍然是一�
 ### 7. 异步代码解决方案
 
 - 回调函数
+- setTimeout setIntervel
 - Promise
 - generator
 - async await
@@ -725,13 +683,58 @@ async / await 是 generator 的语法糖，是基于 Promise 的。有了async �
 
 [Eventloop不可怕，可怕的是遇上Promise](https://juejin.im/post/6844903808200343559)
 
+JS的执行顺序是先同步 再异步；同步执行完成之前 异步不会执行
+
+先执行微任务，然后在执行宏任务；
+JS中的宏任务：setTimeout setIntervel ajax
+JS中的微任务：Promise.then  Promise.catch   await(可以理解成Promise.then)
+
+
 ### 10. 客户端持久化存储
 请描述一下 cookies，sessionStorage和 localStorage的区别？
 
 主要从作用，大小，存储位置，何时销毁回答。
 
+[https://jerryzou.com/posts/cookie-and-web-storage/](https://jerryzou.com/posts/cookie-and-web-storage/)
+
 ### 11. 算法
 用js实现千位分隔符
+
+防抖函数debounce原理：在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。
+多次事件一次响应的情况
+```js
+// 函数防抖
+var timer = false;
+document.getElementById("debounce").onscroll = function(){
+    clearTimeout(timer); // 清除未执行的代码，重置回初始化状态
+
+    timer = setTimeout(function(){
+        console.log("函数防抖");
+    }, 300);
+};  
+
+```
+
+
+节流函数throttle原理：规定一个单位时间，在这个单位时间内，只能有一次触发事件的回调函数执行，如果在同一个单位时间内某事件被触发多次，只有一次能生效。
+大量事件按时间做平均分配触发。
+```js
+// 函数节流
+var canRun = true;
+document.getElementById("throttle").onscroll = function(){
+    if(!canRun){
+        // 判断是否已空闲，如果在执行中，则直接return
+        return;
+    }
+
+    canRun = false;
+    setTimeout(function(){
+        console.log("函数节流");
+        canRun = true;
+    }, 300);
+};
+```
+[https://www.jianshu.com/p/b73c2acad696](https://www.jianshu.com/p/b73c2acad696)
 
 ## DOM
 。。。
@@ -760,7 +763,7 @@ get
 
 
 ### 2. 块级作用域，临时死区TDZ
-let const 
+var let const 区别，联想预编译过程变量声明提升
 
 ### 3.函数的扩展
   函数参数指定默认值
@@ -768,59 +771,6 @@ let const
   函数的名字 name 如何确定
   不定参数对 arguments 的影响
   箭头函数
-
-### 3.变量的解构赋值
-
-### 4.字符串的扩展
-  模板字符串 反引号 美元符号 大括号
-  includes()：返回布尔值，表示是否找到了参数字符串。
-  startsWith()：返回布尔值，表示参数字符串是否在原字符串的头部。
-  endsWith()：返回布尔值，表示参数字符串是否在原字符串的尾部。
-### 5.数值的扩展
-
-###  7.数组的扩展
-    扩展运算符
-### 8.对象的扩展
-    对象的解构
-### 9.新增 symbol 和 BigInt 数据类型
-
-### 10.Set 和 Map 数据结构 
-    ES6 提供了新的数据结构 Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。 Set 本身是一个构造函数，用来生成 Set 数据结构。
-    
-    Map它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。
-### 11.Proxy
-    Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问
-    都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。
-    Proxy 这个词的原意是代理，用在这里表示由它来“代理”某些操作，可以译为“代理器”。
-    Vue3.0使用了proxy
-### 12.Promise
-    Promise 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。
-    特点是：
-        对象的状态不受外界影响。
-        一旦状态改变，就不会再变，任何时候都可以得到这个结果。
-### 13.async 函数 
-    async函数对 Generator 函数的区别：
-    （1）内置执行器。
-    Generator 函数的执行必须靠执行器，而async函数自带执行器。也就是说，async函数的执行，与普通函数一模一样，只要一行。
-    （2）更好的语义。
-    async和await，比起星号和yield，语义更清楚了。async表示函数里有异步操作，await表示紧跟在后面的表达式需要等待结果。
-    （3）正常情况下，await命令后面是一个 Promise 对象。如果不是，会被转成一个立即resolve的 Promise 对象。
-    （4）返回值是 Promise。
-    async函数的返回值是 Promise 对象，这比 Generator 函数的返回值是 Iterator 对象方便多了。你可以用then方法指定下一步的操作。
-### 14.Class 
-    class跟let、const一样：不存在变量提升、不能重复声明...
-    ES6 的class可以看作只是一个语法糖，它的绝大部分功能
-    ES5 都可以做到，新的class写法只是让对象原型的写法更加清晰、更像面向对象编程的语法而已。
-### 15.Module
-    ES6 的模块自动采用严格模式，不管你有没有在模块头部加上"use strict";。
-    import和export命令以及export和export default的区别
-
-
-
-
-
-
-
 
 ## Vue
 
@@ -845,6 +795,7 @@ Vue 实例从创建到销毁的过程，就是生命周期。
 也就是从开始创建、初始化数据、编译模板、挂载Dom→渲染、更新→渲染、卸载等一系列过程，我们称这是 Vue 的生命周期。
 
 它可以总共分为8个阶段：创建前/后, 载入前/后,更新前/后,销毁前/销毁后。
+
 
 
 #### 2.2 特定的时间做特定的事情：
@@ -911,26 +862,7 @@ data = vm._data = typeof data === 'function'
 为了保证数据之间是互相独立的，互不影响的，使用return即函数，而不是对象，因为对象是内存引用。
 
 ### 8. Vue-Router
-两种模式 history hash
 
-router-link
-router-view
-路由传参
-路由元信息
-
-左右横跳
-```md
-this.$route.back() //回退一步
-this.$route.foreard() //前进一步
-this.$route.go() //指定回退前进的步数
-this.$route.push() //导航到不同的URL，向history栈中添加一个新的记录
-this.$route.replace() //导航到不同的URL，替换掉栈中当前的记录
-this.s4route.meta() //访问Meta中的数据
-```
-
-路由懒加载
-
-导航守卫：通过跳转或取消的方式来守卫导航
 
 ### 9. Vuex
 
@@ -949,6 +881,50 @@ this.s4route.meta() //访问Meta中的数据
 
 [https://www.imooc.com/article/25167](https://www.imooc.com/article/25167)
 
+一例
+```js
+import axios from 'axios'
+axios.defaults.headers.common['Authorization'] = `Bearer ${sessionStorage.getItem('token')}` || ''
+
+// 多环境配置
+let apiUrl
+if (process.env.NODE_ENV == 'production') {
+  //线上
+  apiUrl = 'http://demo.cemcoe.com/jianshu_api'
+} else if (process.env.NODE_ENV == 'development') {
+  //本地
+  apiUrl = 'http://localhost:3000'
+} else {
+  //预发布
+  apiUrl = 'http://localhost:3000'
+}
+
+export function request(config) {
+  // 1. 创建axios实例
+  const instance = axios.create({
+    baseURL: apiUrl,
+    timeout: 10000, // 设置超时时间10s
+  })
+  // 2. 请求拦截器，添加jwt token
+
+  instance.interceptors.request.use(config => {
+    // config.headers.Authorization = `Bearer ${sessionStorage.getItem('token')}` || ''
+    return config
+  }, err => {
+
+  })
+  // 3. 响应拦截
+  instance.interceptors.response.use(res => {
+    return res.data
+  }, err => {
+
+  })
+
+  // 4. 发送真正的网络请求
+  return instance(config)
+}
+```
+
 ### 11. 如何设计一个自己的组件库
 
 ## 网络
@@ -963,11 +939,49 @@ DNS解析
 
 ### 0. 三次握手，四次挥手
 [跟着动画学习TCP三次握手和四次挥手](https://mp.weixin.qq.com/s/pSrKbVryn71kDVIXUtpXMA)
-
+三次握手:   
+第一次握手：客户端向服务端发送SYN码数据包，表示客户端要求和服务端建立连接；
+第二次握手：服务端收到客户端的连接请求后，会发送ACK数据包给客户端，表示你的连接 请求已经收到，询问客户端是否真的需要建立连接；
+第三次握手：客户端收到ACK码以后会检验是否正确，如果正确，客户端会再次发送ACK码给 服务端，表示确认建立连接； (三次握手都成功以后才会建立连接，然后才会发送数据；)
+四次挥手：
+第一次挥手：当客户端发送数据结束后，会发送FIN码数据包给服务端，表示告知服务端客 户端的数据已经传递完了。
+第二次挥手：当服务端收到FIN后，会发送ACK给客户端，表示服务端已经知道客户端传完 了。客户端收到ACK以后就会把传递数据给服务端的通道关闭；
+第三次挥手：当服务端把响应的数据发送完毕后，会发送一个FIN给客户端，告知客户端响 应的数据已经发送完毕；
+第四次挥手：当客户端收到FIN后，会发送一个ACK码数据包给服务端，告知服务端客户端已 经知道数据发送完毕；服务端收到ACK码后，可以安心的把数据传递通道关闭掉。 
 
 ### 1. 如何解决跨域问题
+CORS 需要浏览器和后端同时支持。浏览器会自动进行 CORS 通信，实现 CORS 通信的关键是后端。只要后端实现了 CORS，就实现了跨域。服务端设置 Access-Control-Allow-Origin 就可以开启 CORS。
+```js
+// koa cors 并放行options预检请求
+ctx.set("Access-Control-Allow-Origin", "*");
+  ctx.set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+  ctx.set("Access-Control-Max-Age", "3600");
+  ctx.set("Access-Control-Allow-Headers", "x-requested-with,Authorization,Content-Type,Accept");
+  ctx.set("Access-Control-Allow-Credentials", "true");
+  if (ctx.request.method == "OPTIONS") {
+    ctx.response.status = 200
+  }
+  console.log(`Process ${ctx.request.method} ${ctx.request.url}`);
+  try {
+    await next();
+    console.log('handler通过')
+  } catch (err) {
+    console.log('handler处理错误')
+    ctx.response.status = err.statusCode || err.status || 500;
+    ctx.response.body = {
+      message: err.message
+    };
+  }
+```
 
-### 2. cookie、session 了解吗？说一下传统的登录流程？
+
+### 2. 登录流程？
+
+
+安全性： Session 比 Cookie 安全，Session 是存储在服务器端的，Cookie 是存储在客户端的。
+存取值的类型不同：Cookie 只支持存字符串数据，想要设置其他类型的数据，需要将其转换成字符串，Session 可以存任意数据类型。
+有效期不同： Cookie 可设置为长时间保持，比如我们经常使用的默认登录功能，Session 一般失效时间较短，客户端关闭（默认情况下）或者 Session 超时都会失效。
+存储大小不同： 单个 Cookie 保存的数据不能超过 4K，Session 可存储数据远高于 Cookie，但是当访问量过多，会占用过多的服务器资源
 
 ### 3. 前端鉴权
 
@@ -992,7 +1006,6 @@ DNS解析
 
 ## 前端工程化
 ### 0. 前端模块化规范AMD CMD CommonJS
-### 0. webpack
 
 ## 性能优化
 初级而已，不要计较太多
@@ -1018,6 +1031,8 @@ DNS解析
 项目能访问，这个隐含的东西可多了。如果这个是你自己做的，这说明你起码舍得为技术花钱、会配置服务器、会部署前后端项目、有使用 linux 的经验、愿意证明项目是真的而不是嘴遁。
 
 基础和项目穿插：问到基础可以穿插项目，这样才真实，而不是个只会背答案的复读•莫得感情•机。随便举个例子，比如问到状态码，你说“⋯⋯301 重定向，我之前做的一个项目地址改了，于是在 nginx 里配置的时候就用到了 ⋯⋯ 它和 302 也是有区别的，⋯⋯”。
+独立封装了什么什么组件，提高了代码的复用率，减少了冗余代码；
+
 
 
 ### 2. 让你印象最深刻的一个（技术）难点，害的你搞了很久，最后怎么解的，有什么心得？
@@ -1047,6 +1062,17 @@ DNS解析
 ```
 某些面试官居然自己构造专业名词问别人，比如你知道什么是CDYSB么，啊？不知道？！这就是层叠样式表的拼音缩写啊，就是css啊，你是不是搞前端的啊！
 ```
+
+## 一些tip
+- 项目中的公共样式千万别去动！！
+- 工作难的不是开发是改bug，一定及时沟通！！ 需求不明确问产品，字段不确定问后端 不问卡在那 最后担责任的还是自己
+- 学会定义全局变量和常量，看能否少写请求，减少代码冗余，不然codeRivew的时候会被鄙视死
+- 拿到项目，先把全局看下，能否拆分出组件，抽取出公用JS，不然后期再去拆很痛苦
+- 学会看数据库，自己学着去看自己处理的东西，尤其是后端定义的字段
+- 写业务先想清楚,接口文档及时要,数据结构会影响代码设计的
+- UI库常用组件进行二次封装
+- 按钮要加防抖
+
 
 
 ## 参考
